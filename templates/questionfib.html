@@ -1,0 +1,93 @@
+{% extends "theme.html" %}
+
+{% block title %}
+Question
+{% endblock %}
+
+{% block extStyle %}
+<link href="../static/css/question.css" rel='stylesheet' type='text/css' media="all" />
+{% endblock %}
+
+{% block extJS %}
+
+{% endblock %}
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li> 
+        <li><a href="#">Page 3</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="formContainer">
+  <div class="myform">
+    <p id="question">{{params.que}}</p>
+    <form action="/question" method="POST">
+    <div class="inputRadio" id="op1" onclick="myFn('op1')">
+    	{{params.op1}}
+    </div>
+    <div class="inputRadio" id="op2" onclick="myFn('op2')">
+    	{{params.op2}}
+    </div>
+    <div class="inputRadio" id="op3" onclick="myFn('op3')">
+    	{{params.op3}}
+    </div>
+    <div class="inputRadio" id="op4" onclick="myFn('op4')">
+    	{{params.op4}}
+	</div>
+	<div class="inputRadio inputSubmit" onclick="submitForm()">
+  	<form action="/question" method="POST">
+  		<input type="hidden" name="choice" id="answer">
+  		<input type="submit" value="Submit and Next">
+  	</form>
+  </div>
+
+    <div class="hint">
+      <div class="inputRadio hintButton">
+        <form action="/question" method="POST">
+          <input type="hidden" name="hint" id="hintDisp">
+          <input type="submit" id="hintSubmit" value="Hint">
+        </form>
+      </div>
+      <p id="hint">This it a random text and this is my typing speed as fast as I can go without looking at the keyboard and trust me I am </p>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+window.sel = '';
+function myFn(x) {
+    lis = document.getElementsByClassName('inputRadio');
+    for (i=0;i<4;i=i+1)
+        {
+            lis[i].style.background = '#3970b0';
+        }
+    document.getElementById(x).style.background = '#0e3f77';
+    sel = x;
+    document.getElementById(x).checked = true;
+}
+
+function submitForm() {
+    console.log(sel);
+    document.getElementById('answer').value = sel;
+}
+</script>
+{% endblock %}

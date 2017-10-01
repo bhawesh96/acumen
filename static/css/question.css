@@ -1,0 +1,141 @@
+body {
+	background:url(../image/banner.jpg) no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	font-family: 'Raleway', sans-serif;
+	font-weight:300;
+}
+#question {
+  margin-bottom: 50px;
+}
+
+.formContainer {
+	text-align: center;
+  position: relative;
+  width: 100%;
+  /*background-color: red;*/
+}
+.myform {
+  position: relative;
+  color: white;
+  text-align: center;
+  background-color: #202123;
+  width: 50%;
+  margin: 0px auto;
+  margin-top: 70px;
+  padding: 20px;
+  /*height: 400px;*/
+  padding-bottom: 30px;
+  overflow: auto;
+}
+
+#question {
+  font-weight: 600;
+  padding: 10px 10px 10px 10px;
+}
+
+#quesImage {
+  width: 200px;
+
+  margin-top: -40px;
+}
+
+.inputRadio {
+	background-color: #3970b0;
+	display: inline-block;
+	width: 43%;
+	margin: 10px 10px 10px 0px;
+	padding: 10px;
+
+	text-align: left;
+}
+
+.inputRadio:hover {
+  cursor: pointer;
+}
+
+.inputSubmit {
+	text-align: center;
+  margin-top: 40px;
+}
+
+.hintButton {
+  width: 60px;
+  float: left;
+  text-align: center;
+
+}
+input[type="button"] {
+  background-color: inherit;
+  padding: inherit;
+  border: none;
+  color: white;
+  width: 106%;
+  margin: -10px;
+}
+
+input[type="button"]#hintSubmit {
+  width: 60px;
+  padding: 10px;
+}
+
+.hint {
+  margin-top: 20px;
+}
+
+#hint {
+  width: 80%;
+  margin-top: 10px;
+  margin-left: 20px;
+  float: left;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .myform {
+    width: 100%;
+    margin-top: 10%;
+    height: 500px;
+  }
+
+  input[type="button"] {
+    width: 100%;
+  }
+
+  .inputRadio {
+    width: 80%;
+  }
+
+  .hintButton {
+    margin: 0px auto;
+    width: 60px;
+  }
+}
+
+input.register {
+    width: 335px;
+    margin: 30px auto;
+    display: block;
+    height: 50px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: normal;
+    color: #fff;
+    background-color:#3970b0;
+    border-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  /*-- w3ls --*/
+  transition:all 0.5s ease-in-out;
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+  -ms-transition:all 0.5s ease-in-out;
+  cursor:pointer;
+}
+input.register:hover {
+  color: #fff;
+    background-color:#3970b0;
+}
