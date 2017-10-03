@@ -38,8 +38,10 @@ Question
 </nav>
 <div class="formContainer">
   <div class="myform">
-    <p id="question">{{params.ques}}</p>
-    <img id="quesImage" src="../static/image/{{params.quesImage}}">
+    <p id="question" style="text-align: left;">{{params.ques}}</p>
+    {%if params.quesImage%}
+      <img id="quesImage" src="../static/image/{{params.quesImage}}">
+    {%endif%}
     <form action="/question" method="POST">
       <div class="w3layouts"> 
         <input type="text" id="answer" name="answer" placeholder="Answer" required="">
