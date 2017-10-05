@@ -18,7 +18,7 @@ CREATE TABLE `acumen`.`scores` (
 
 CREATE TABLE `acumen`.`questions` (
   `ques_id` VARCHAR(20),
-  `story` VARCHAR(400),
+  `story` VARCHAR(1000),
   `question` VARCHAR(400),
   `ques_image` varchar(200),
   `answer` VARCHAR(30),
@@ -41,9 +41,9 @@ begin
 end$$
 delimiter ;
 
-call insert_player_acumen('rahul','150911122','abc@gmail.com','9008318345','rahul123');
+-- call insert_player_acumen('rahul','150911122','abc@gmail.com','9008318345','rahul123');
 
-select * from players;
+-- select * from players;
 
 ---VALIDATE LOGIN PROCEDURE
 ---RETURNS 0 IN THE VARIABLE PASSED IF NOT FOUND AND THE ID OF THE PLAYER IF FOUND
@@ -60,7 +60,7 @@ $$
 delimiter ;
 
 
-call validate_login('abc@gmail.com','rahul123');
+-- call validate_login('abc@gmail.com','rahul123');
 
 delimiter $$
 create trigger init_score_acumen after insert on players
