@@ -48,6 +48,9 @@ Question
       </div>
       <input type="submit" class="register" value="Submit and Next">
     </form>
+    {%if incorrect%}
+    <p id='incorrcect'>Uh-huh! Previous answer was incorrect</p>
+    {%endif%}
     {%if params.hint%}
     <div class="hint">
       <div class="inputRadio hintButton">

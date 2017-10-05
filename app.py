@@ -26,6 +26,7 @@ def main():
 	# params = {'ques':'Who is the President of United States of America ?', 'quesImage': 'code.png'}
 	params = {'ques':"Who is the president of America?", 'quesImage': False, 'story':"President is a mjor role and is given to one ho is highly responsible, smart and harworking but clubs make mistakes here"}
 	#return render_template('question.html', params = params)
+	session['incorrect'] = False
 	return redirect('/question')
 
 @app.route('/home')
@@ -186,7 +187,8 @@ def getQuestion():
 def question():
 	if(session.get('user_id')):
 		params = getQuestion()
-		return render_template('question.html', params = params, hint = False,name = session['name'])
+		print session['incorrect']
+		return render_template('question.html', params = params, hint = False,name = session['name'], incorrect = session['incorrect'])
 	else:
 		return redirect('/signup')
 
@@ -199,8 +201,9 @@ def validateAns():
 		if(_inputAns == session['curr_ans'].lower().rstrip()):
 			print 'updatescore'
 			updateScore()
+			session['incorrect'] = False
 		else:
-			update()
+			session['incorrect'] = True
 		return redirect('/question')
 	else:
 		return redirect('/signup')
