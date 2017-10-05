@@ -38,7 +38,8 @@ Question
 </nav>
 <div class="formContainer">
   <div class="myform">
-    <p id="question" style="text-align: left;">{{params.ques}}</p>
+    <p id="story">{{params.story}}</p>
+    <p id="question">{{params.ques}}</p>
     {%if params.quesImage%}
       <img id="quesImage" src="../static/image/{{params.quesImage}}">
     {%endif%}
@@ -47,15 +48,17 @@ Question
         <input type="text" id="answer" name="answer" placeholder="Answer" required="">
       </div>
       <input type="submit" class="register" value="Submit and Next">
-
+    </form>
+    {%if params.hint%}
     <div class="hint">
       <div class="inputRadio hintButton">
-        <form action="/question" method="POST">
-          <input type="button" name="hint" id="hintSubmit" value="Hint">
+        <form action="/showHint" method="POST">
+          <input type="submit" name="hint" id="hintSubmit" value="Hint">
         </form>
       </div>
-      <p id="hint">This it a random text and this is my typing speed as fast as I can go without looking at the keyboard and trust me I am </p>
+      <p id="hint">{{params.hint}}</p>
     </div>
+    {%endif%}
   </div>
 
 </div>

@@ -9,12 +9,10 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-weight:300;
 }
-#question {
-  margin-bottom: 50px;
-}
+
 
 .formContainer {
-	text-align: center;
+  text-align: center;
   position: relative;
   width: 100%;
   /*background-color: red;*/
@@ -34,10 +32,16 @@ body {
 }
 
 #question {
+  margin-bottom: 50px;
   font-weight: 600;
   padding: 10px 10px 10px 10px;
 }
 
+#score {
+  /*font-weight: 600;*/
+  margin-bottom: 50px;
+  padding: 10px 10px 10px 10px;
+}
 #quesImage {
   width: 60%;
 
@@ -69,7 +73,7 @@ body {
   text-align: center;
 
 }
-input[type="button"] {
+input[type="submit"] {
   background-color: inherit;
   padding: inherit;
   border: none;
@@ -78,7 +82,7 @@ input[type="button"] {
   margin: -10px;
 }
 
-input[type="button"]#hintSubmit {
+input[type="submit"]#hintSubmit {
   width: 60px;
   padding: 10px;
 }
