@@ -8,10 +8,7 @@ CREATE TABLE players (
   `mobile` VARCHAR(10),
   `password` VARCHAR(200),
   `college` VARCHAR(20),
-  `curr_ques_id` VARCHAR(20), -- xx_yy format xx corresponds to the round number and yy corresponds to the ques no.
-  `d1_res` VARCHAR(20),
-  `d2_res` VARCHAR(20),
-  `d3_res` VARCHAR(20),
+  `curr_ques_id` VARCHAR(20), --serial number
   PRIMARY KEY (`id`));
 
 CREATE TABLE `acumen`.`score` (
@@ -22,11 +19,9 @@ CREATE TABLE `acumen`.`score` (
 
 CREATE TABLE `acumen`.`questions` (
   `ques_id` VARCHAR(20),
+  `story` VARCHAR(400),
   `question` VARCHAR(400),
-  `op1` VARCHAR(300),
-  `op2` VARCHAR(300),
-  `op3` VARCHAR(300),
-  `op4` VARCHAR(300),
+  `answer` VARCHAR(30),
   `hint` VARCHAR(500),
   PRIMARY KEY (`ques_id`));
 
