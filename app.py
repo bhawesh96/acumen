@@ -164,7 +164,7 @@ def getQuestion():
 		conn=mysql.connect()
 		try:
 			cursor=conn.cursor()
-			cursor.execute("SELECT * FROM questions WHERE ques_id = %s", (session['curr_ques']))
+			cursor.execute("SELECT * FROM questions2 WHERE ques_id = %s", (session['curr_ques']))
 		except Exception as e:
 			print str(e)
 		data = cursor.fetchall()

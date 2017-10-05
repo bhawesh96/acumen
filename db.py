@@ -7,7 +7,7 @@ count =0
 db  = sql.connect('139.59.17.132','user2','passw','acumen')
 c = db.cursor()
 
-query = " INSERT INTO questions VALUES "
+query = " INSERT INTO questions2 VALUES "
 with open('acumen.csv') as file:
 	flag =1
 

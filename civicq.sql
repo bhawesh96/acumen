@@ -16,7 +16,7 @@ CREATE TABLE `acumen`.`scores` (
   `points` varchar(20)
   );
 
-CREATE TABLE `acumen`.`questions` (
+CREATE TABLE `acumen`.`questions2` (
   `ques_id` VARCHAR(20),
   `story` VARCHAR(1000),
   `question` VARCHAR(400),
