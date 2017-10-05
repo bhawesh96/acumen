@@ -56,7 +56,9 @@ Question
           <input type="submit" name="hint" id="hintSubmit" value="Hint">
         </form>
       </div>
-      <p id="hint">{{params.hint}}</p>
+       {%if hint%} 
+        <p id="hint">{{hint}}</p>
+       {%endif%}
     </div>
     {%endif%}
   </div>
