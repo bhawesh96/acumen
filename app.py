@@ -172,8 +172,12 @@ def getQuestion():
 			story = value[1]
 			ques = value[2]
 			quesImage = value[3]
+			if(quesImage == 'False'):
+				quesImage = False
 			session['curr_ans'] = value[4]
 			hint = value[5]
+			if(hint == 'False'):
+				hint = False
 		params = {'story':story, 'ques':ques, 'quesImage':quesImage, 'ans':session['curr_ans'], 'hint':hint}
 		conn.close()
 		return params
@@ -182,7 +186,7 @@ def getQuestion():
 def question():
 	if(session.get('user_id')):
 		params = getQuestion()
-		return render_template('question.html', params = params, hint = False)
+		return render_template('question.html', params = params, hint = False,name = session['name'])
 	else:
 		return redirect('/signup')
 
@@ -191,7 +195,8 @@ def question():
 def validateAns():
 	if(session.get('user_id')):
 		_inputAns = str(request.form['answer']).lower().rstrip()
-		if(_inputAns == session['curr_ans']):
+		_inputAns = '"' + _inputAns + '"'
+		if(_inputAns == session['curr_ans'].lower().rstrip()):
 			print 'updatescore'
 			updateScore()
 		else:
