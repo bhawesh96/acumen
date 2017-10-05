@@ -7,12 +7,13 @@ CREATE TABLE `acumen`.players (
   `email` VARCHAR(45),
   `mobile` VARCHAR(10),
   `password` VARCHAR(200),
-  `curr_ques_id` VARCHAR(20) --serial number
-  PRIMARY KEY (`id`));
+  `curr_ques` VARCHAR(20),
+  PRIMARY KEY (`user_id`)
+  );
 
 CREATE TABLE `acumen`.`scores` (
   `user_id` BIGINT REFERENCES `players` (`user_id`),
-  `points` BIGINT(20)
+  `points` varchar(20)
   );
 
 CREATE TABLE `acumen`.`questions` (
