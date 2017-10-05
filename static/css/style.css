@@ -118,6 +118,7 @@ h1.w3ls {
     -o-background-size: cover;
     -ms-background-size: cover;
     height: 500px;
+    position: relative;
 }
 h2.agileits1 {
     font-size: 40px;
@@ -488,3 +489,13 @@ p.copyright {
 
 
 /*-- /responsive design --*/
+
+#dev {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	padding: 10px;
+	background-color: #202123;
+	text-align: center;
+	color: white;
+}
