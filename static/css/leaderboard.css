@@ -18,3 +18,12 @@
 	padding: 10px;
 	width: 80%;
 }
+
+#rulesOL {
+	color: white;
+	padding: 10px;
+}
+
+#rulesOL li {
+	padding: 10px;
+}

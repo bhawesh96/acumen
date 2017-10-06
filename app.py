@@ -47,11 +47,12 @@ def developer():
 
 @app.route('/logout')
 def logout():
-    if(session.get('/user')):
-        session.clear()
-        return redirect('/')
-    else:
-        return redirect('/')
+    session.clear()
+    return redirect('/')
+    
+@app.route('/rules')
+def rules():
+    return render_template('rules.html')
 
 @app.route('/leaderboard')
 def leaderboard():
@@ -215,7 +216,7 @@ def question():
         print session['incorrect']
         return render_template('question.html', params = params, hint = False,name = session['name'], incorrect = session['incorrect'])
     else:
-        return redirect('/signup')
+        return redirect('/login')
 
 
 @app.route('/question', methods=['POST'])
@@ -258,7 +259,23 @@ def showHint():
         return render_template('question.html', params = params, hint = params['hint'])
     else:
         return redirect('/singup')
-    
+
+@app.route('/pass', methods=['POST'])
+def passQue():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("SELECT * FROM scores WHERE user_id = %s", (session['user_id']))
+        data = cursor.fetchall()
+        score = 0
+        for player in data:
+            score = int(player[1]) - 15
+        cursor.execute("UPDATE scores SET points = %s WHERE user_id = %s", (str(score), session['user_id']))
+        conn.commit()
+        update()
+    except Exception as e:
+        print str(e)
+    return redirect('/question')
 
 if __name__ == "__main__":
     app.run(debug=True,port=5006,use_evalex=False)

@@ -119,6 +119,9 @@ input[type="submit"]#hintSubmit {
   }
 }
 
+.pass {
+  float: right;
+}
 input.register {
     width: 335px;
     margin: 30px auto;
