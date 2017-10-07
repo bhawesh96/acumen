@@ -21,13 +21,13 @@ mysql.init_app(app)
 
 app.secret_key = '8bf9547569cd5a638931a8639cf9f86237931e92' 
 
-@app.route('/')
 def main():
 	# params = {'ques':'Who is the President of United States of America ?', 'quesImage': 'code.png'}
 	params = {'ques':"Who is the president of America?", 'quesImage': False, 'story':"President is a mjor role and is given to one ho is highly responsible, smart and harworking but clubs make mistakes here"}
 	#return render_template('question.html', params = params)
 	return redirect('/question')
 
+@app.route('/')
 @app.route('/home')
 @app.route('/login')
 def showSignUp():
