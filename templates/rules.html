@@ -1,0 +1,45 @@
+{% extends "theme.html" %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block extStyle %}
+<link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Welcome {{namex}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li class="active"><a href="/rules">Rules</a></li>
+        <li><a href="/leaderboard">Leaderboard</a></li>
+        <li><a href="/developer">Developers</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="content-w3ls rules">
+	<ol id="rulesOL">
+    <li>1. You get 5 points if you get an answer right.</li>
+    <li>2. -10 if you take a hint.</li>
+    <li>3. To skip a question, -15 points.</li>
+    <li>4. The story precedes each question, and to find out what happens next in the story, you need to answer the given question.</li>
+  </ol>
+</div>
+
+{% endblock %}  

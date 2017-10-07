@@ -4,6 +4,10 @@
 SignUp
 {% endblock %}
 
+{% block extStyle %}
+<link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
+{% endblock %}
+
 {% block body %}
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -13,28 +17,31 @@ SignUp
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">ACUMEN</a>
+      <a class="navbar-brand" href="#">Welcome {{namex}}</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="/home">Home</a></li>
-        <li><a href="#">Rules</a></li>
-        <li class="active"><a href="/developer">Developers</a></li> 
+        <li><a href="/rules">Rules</a></li>
+        <li class="active"><a href="/leaderboard">Leaderboard</a></li>
+        <li><a href="/developer">Developers</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="content-w3ls" style="width: 50%;">
-	<div class="content-agile1" style="height: 400px;">
-		<div id="dev">Rahul Agarwal</div>
-	</div>
-	<div class="content-agile1" style="height: 400px;">
-		<div id="dev">Bhawesh Bhansali</div>
-	</div>
+<div class="content-w3ls">
+	{%if players %}
+	  {% for row in players %}
+	    <div id="position">{{row['pos']}}</div>
+		<div id="name">{{row['name']}}</div>
+	  {% endfor %}
+	{% else %}
+	  <p>Data not found.</p>
+	{% endif %}
 </div>
-	
+
 {% endblock %}  
