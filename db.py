@@ -8,7 +8,7 @@ db  = sql.connect('139.59.17.132','user2','passw','acumen')
 c = db.cursor()
 
 query = " INSERT INTO questions2 VALUES "
-with open('acumen.csv') as file:
+with open('acumen_new.csv') as file:
 	flag =1
 
 	readr = csv.reader(file)
@@ -19,7 +19,7 @@ with open('acumen.csv') as file:
 		# if(r[0] == "ROUND6"):
 			# continue;
 		if(flag==1):
-			if(r[0]=='60'):
+			if(r[0]=='120'):
 				flag=0
 			count +=1
 			# r[0] == ques_id			
@@ -31,7 +31,7 @@ with open('acumen.csv') as file:
 			# r[6] == op4
 			if(r[5] == ''):
 				r[5] = 'False'
-			if(r[3] == 'FALSE'):
+			if(r[3] == 'FALSE' or r[3] == ''):
 				r[3] = 'False'
 				# r[10] = 'null'
 			val = "('" + r[0] +"','" + r[1] +"','" + r[2] +"','"+ r[3] +"','"+ r[4] +"','"+ r[5] + "')"
