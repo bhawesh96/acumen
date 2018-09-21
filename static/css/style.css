@@ -82,13 +82,13 @@ img {
 /*--- end reset code ---*/
 
 body {
-	background:url(../image/banner.jpg) no-repeat;
+	/*background:url(../image/banner.jpg) no-repeat;
 	background-attachment:fixed;
 	background-position:center;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
-	-o-background-size:cover;
+	-o-background-size:cover;*/
 	font-family: 'Raleway', sans-serif;
 	font-weight:300;
 }
