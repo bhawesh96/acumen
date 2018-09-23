@@ -28,7 +28,7 @@ CREATE TABLE `kodamr13_inquizitive`.`questions` (
   `question_image` varchar(200),
   `answer` INT,
   `difficulty` INT,
-  PRIMARY KEY (`ques_id`));
+  PRIMARY KEY (`question_id`));
 
 -- CREATE PLAYER PROCEDURE
 -- SIGNS UP A USER IF NOT ALREADY EXISTS
