@@ -12,10 +12,10 @@ mysql = MySQL()
 app = Flask(__name__)
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'user2'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'passw'
-app.config['MYSQL_DATABASE_DB'] = 'acumen'
-app.config['MYSQL_DATABASE_HOST'] = '139.59.17.132'
+app.config['MYSQL_DATABASE_USER'] = 'kodamr13_inquiz'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'oEO8CI1![0D='
+app.config['MYSQL_DATABASE_DB'] = 'kodamr13_inquizitive'
+app.config['MYSQL_DATABASE_HOST'] = '103.50.162.66'
 
 mysql.init_app(app)
 
@@ -95,7 +95,7 @@ def signUp():
             # if not is_success_captcha:
             #     return render_template("404.html",error = 'The captcha couldnt be verified')
             try:
-                cursor.callproc('insert_player_acumen',(_name, _reg, _email, _phone, _password))
+                cursor.callproc('insert_player_inquizitive',(_name, _reg, _email, _phone, _password))
                 data = cursor.fetchall()
                 if len(data) is 0:
                     conn.commit()
@@ -136,7 +136,7 @@ def validateLogin():
             #if not is_success_captcha:
             #    return render_template("404.html",error = 'The captcha couldnt be verified')
             try:
-                data = cursor.callproc('validate_login_acumen',(_email, _password))
+                data = cursor.callproc('validate_login_inquizitive',(_email, _password))
                 data = cursor.fetchall()
                 if len(data) > 0:
                     conn.commit()
@@ -191,7 +191,7 @@ def getQuestion():
         conn=mysql.connect()
         try:
             cursor=conn.cursor()
-            cursor.execute("SELECT * FROM questions WHERE ques_id = %s", (session['curr_ques']))
+            cursor.execute("SELECT * FROM questions WHERE question_id = %s", (session['curr_ques']))
         except Exception as e:
             print str(e)
         data = cursor.fetchall()

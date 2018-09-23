@@ -1,6 +1,6 @@
-drop table `acumen`.players;
+-- drop table if exists `kodamr13_inquizitive`.players;
 
-CREATE TABLE `acumen`.players (
+CREATE TABLE `kodamr13_inquizitive`.players (
   `user_id` BIGINT AUTO_INCREMENT,
   `name` VARCHAR(45),
   `reg_no` VARCHAR(45),
@@ -11,27 +11,32 @@ CREATE TABLE `acumen`.players (
   PRIMARY KEY (`user_id`)
   );
 
-CREATE TABLE `acumen`.`scores` (
+CREATE TABLE `kodamr13_inquizitive`.`scores` (
   `user_id` BIGINT REFERENCES `players` (`user_id`),
   `points` varchar(20)
   );
 
-CREATE TABLE `acumen`.`questions2` (
-  `ques_id` VARCHAR(20),
-  `story` VARCHAR(1000),
+-- drop table if exists `kodamr13_inquizitive`.questions;
+
+CREATE TABLE `kodamr13_inquizitive`.`questions` (
+  `question_id` VARCHAR(20),
   `question` VARCHAR(400),
-  `ques_image` varchar(200),
-  `answer` VARCHAR(30),
-  `hint` VARCHAR(500),
+  `option1` VARCHAR(100),
+  `option2` VARCHAR(100),
+  `option3` VARCHAR(100),
+  `option4` VARCHAR(100),
+  `question_image` varchar(200),
+  `answer` INT,
+  `difficulty` INT,
   PRIMARY KEY (`ques_id`));
 
----CREATE PLAYER PROCEDURE
----SIGNS UP A USER IF NOT ALREADY EXISTS
+-- CREATE PLAYER PROCEDURE
+-- SIGNS UP A USER IF NOT ALREADY EXISTS
 
 
-drop procedure if exists `insert_player_acumen`;
+drop procedure if exists `insert_player_inquizitive`;
 delimiter $$
-create procedure `insert_player_acumen`(  IN p_name VARCHAR(45), IN p_regno VARCHAR(45), IN p_email VARCHAR(45),IN p_mobile VARCHAR(10), IN p_password VARCHAR(200))
+create procedure `insert_player_inquizitive`(  IN p_name VARCHAR(45), IN p_regno VARCHAR(45), IN p_email VARCHAR(45),IN p_mobile VARCHAR(10), IN p_password VARCHAR(200))
 begin
 	if exists( SELECT user_id FROM players WHERE  reg_no = p_regno) 
     then select 'Not unique';
@@ -41,18 +46,18 @@ begin
 end$$
 delimiter ;
 
--- call insert_player_acumen('rahul','150911122','abc@gmail.com','9008318345','rahul123');
+-- call insert_player_inquizitive('rahul','150911122','abc@gmail.com','9008318345','rahul123');
 
 -- select * from players;
 
----VALIDATE LOGIN PROCEDURE
----RETURNS 0 IN THE VARIABLE PASSED IF NOT FOUND AND THE ID OF THE PLAYER IF FOUND
+-- VALIDATE LOGIN PROCEDURE
+-- RETURNS 0 IN THE VARIABLE PASSED IF NOT FOUND AND THE ID OF THE PLAYER IF FOUND
 
 
 
-drop procedure if exists `validate_login_acumen`;
+drop procedure if exists `validate_login_inquizitive`;
 delimiter $$
-create procedure acumen.`validate_login_acumen`(in e varchar(45), in p varchar(20))
+create procedure `validate_login_inquizitive`(in e varchar(45), in p varchar(20))
 begin
 select * from players where email = e and password=p;
 end
@@ -60,10 +65,10 @@ $$
 delimiter ;
 
 
--- call validate_login('abc@gmail.com','rahul123');
+-- call validate_login_inquizitive('abc@gmail.com','rahul123');
 
 delimiter $$
-create trigger init_score_acumen after insert on players
+create trigger init_score_inquizitive after insert on players
 for each row
 insert into scores values (New.user_id,'0');
 $$
