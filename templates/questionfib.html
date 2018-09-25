@@ -20,54 +20,65 @@ Question
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">Welcome {{name}}</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li> 
-        <li><a href="#">Page 3</a></li> 
+        <li><a href="/home">Home</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><a href="/instructions">Instructions</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="formContainer">
   <div class="myform">
-    <p id="question">{{params.que}}</p>
+    <div style="display: inline-flex; width: 100%; justify-content: space-between; margin-top: -5px;">
+      <p id="story">Level {{params.level}} Que {{params.question_number}}</p>
+      {%if params.difficulty == 1%}
+        <p id="story">Easy</p>
+      {%endif%}
+      {%if params.difficulty == 2%}
+        <p id="story">Medium</p>
+      {%endif%}
+      {%if params.difficulty == 3%}
+        <p id="story">Difficult</p>
+      {%endif%}
+    </div>
+    <p id="question" style="letter-spacing: 2px;">{{params.ques}}</p>
+    {%if params.quesImage%}
+      <img id="quesImage" src="../static/image/{{params.quesImage}} " alt="{{params.quesImage}}">
+    {%endif%}
     <form action="/question" method="POST">
-    <div class="inputRadio" id="op1" onclick="myFn('op1')">
-    	{{params.op1}}
+    <div class="inputRadio" name="answer" value="1" id="1" onclick="myFn('1')">
+    	{{params.option1}}
     </div>
-    <div class="inputRadio" id="op2" onclick="myFn('op2')">
-    	{{params.op2}}
+    <div class="inputRadio" name="answer" value="2" id="2" onclick="myFn('2')">
+    	{{params.option2}}
     </div>
-    <div class="inputRadio" id="op3" onclick="myFn('op3')">
-    	{{params.op3}}
+    <div class="inputRadio" name="answer" value="3" id="3" onclick="myFn('3')">
+    	{{params.option3}}
     </div>
-    <div class="inputRadio" id="op4" onclick="myFn('op4')">
-    	{{params.op4}}
+    <div class="inputRadio" name="answer" value="4" id="4" onclick="myFn('4')">
+    	{{params.option4}}
 	</div>
 	<div class="inputRadio inputSubmit" onclick="submitForm()">
   	<form action="/question" method="POST">
-  		<input type="hidden" name="choice" id="answer">
+  		<input type="hidden" name="answer" id="answer">
   		<input type="submit" value="Submit and Next">
   	</form>
   </div>
 
-    <div class="hint">
+    <!-- <div class="hint">
       <div class="inputRadio hintButton">
         <form action="/question" method="POST">
-          <input type="hidden" name="hint" id="hintDisp">
-          <input type="submit" id="hintSubmit" value="Hint">
+          <input type="submit" id="hintSubmit" value="Pass">
         </form>
       </div>
-      <p id="hint">This it a random text and this is my typing speed as fast as I can go without looking at the keyboard and trust me I am </p>
-    </div>
+    </div> -->
   </div>
 
 </div>

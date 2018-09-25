@@ -19,6 +19,13 @@
 	width: 80%;
 }
 
+.instructions {
+	width: 80%;
+	color: white;
+	padding: 20px;
+	line-height: 25px;
+}
+
 #rulesOL {
 	color: white;
 	padding: 10px;
@@ -26,4 +33,25 @@
 
 #rulesOL li {
 	padding: 10px;
+}
+
+.register {
+    width: 335px;
+    margin: 30px auto;
+    display: block;
+    height: 50px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: normal;
+    color: #fff;
+    background-color:#3970b0;
+    border-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  /*-- w3ls --*/
+  transition:all 0.5s ease-in-out;
+  -webkit-transition:all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+  -ms-transition:all 0.5s ease-in-out;
+  cursor:pointer;
 }

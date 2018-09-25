@@ -12,6 +12,13 @@ Question
 
 {% endblock %}
 {% block body %}
+<style type="text/css">
+  video {
+    position: fixed;
+    margin-top: -20px;
+    width: 100%;
+  }
+</style>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -20,32 +27,51 @@ Question
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">Welcome {{name}}</a>
+      <a class="navbar-brand" href="#">Welcome {{name}} </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/home">Home</a></li>
+        <li><a href="/home">Home</a></li>
         <li><a href="/rules">Rules</a></li>
-        <li><a href="/leaderboard">Leaderboard</a></li> 
-        
+        <li><a href="/instructions">Instructions</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="../static/video/file.mp4" type="video/mp4">
+</video>
 <div class="formContainer">
   <div class="myform">
-    <p id="story">{{params.story}}</p>
-    <p id="question">{{params.ques}}</p>
+    <div style="display: inline-flex; width: 100%; justify-content: space-between; margin-top: -5px;">
+      <p id="story">Level 1 Que 13</p>
+      <p id="story">{{params.difficulty}}</p>
+    </div>
+    <p id="question" style="letter-spacing: 2px;">{{params.ques}}</p>
     {%if params.quesImage%}
-      <img id="quesImage" src="../static/image/{{params.quesImage}} " alt = "{{params.quesImage}}">
+      <img id="quesImage" src="../static/image/{{params.quesImage}} " alt="{{params.quesImage}}">
     {%endif%}
     <form action="/question" method="POST">
-      <div class="w3layouts"> 
-        <input type="text" id="answer" name="answer" placeholder="Answer" required="">
+      <div class="w3layouts">
+        <div style="text-align: left;">
+          <input id="1" type="radio" name="answer" value="1">
+          <label for="1">{{params.option1}}</label>
+        </div>
+        <div style="text-align: left;">
+          <input id="2" type="radio" name="answer" value="2">
+          <label for="2">{{params.option2}}</label>
+        </div>
+        <div style="text-align: left;">
+          <input id="3" type="radio" name="answer" value="3">
+          <label for="3">{{params.option3}}</label>
+        </div>
+        <div style="text-align: left;">
+          <input id="4" type="radio" name="answer" value="4">
+          <label for="4">{{params.option4}}</label>
+        </div>
       </div>
       <input type="submit" class="register" value="Submit and Next">
     </form>
@@ -65,11 +91,11 @@ Question
     </div>
     {%endif%}
   <div class="pass">
-      <div class="inputRadio hintButton">
-        <form action="/pass" method="POST">
-          <input type="submit" name="hint" id="hintSubmit" value="Pass">
-        </form>
-      </div>
+    <div class="inputRadio hintButton">
+      <form action="/pass" method="POST">
+        <input type="submit" name="hint" id="hintSubmit" value="Pass">
+      </form>
+    </div>
   </div>
   </div>
 
