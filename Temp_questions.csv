@@ -1,0 +1,81 @@
+question_id,image,question,option1,option2,option3,option4,answer,difficulty
+1_1,,"SCD, TEF, UGH, ____, WKL",CMN,UJI,VIJ,IJT,3,1
+1_2,,"FAG, GAF, HAI, IAH, ____",JAK,HAL,HAK,JAI,1,1
+1_3,,"Statement: 'In order to bring punctuality in our office, we must provide conveyance allowance to our employees.' - In charge of a company tells Personnel Manager. Assumptions: 1. Conveyance allowance will not help in bringing punctuality. 2. Discipline and reward should always go hand in hand.",Only assumption I is implicit,Only assumption II is implicit,Neither I nor II is implicit,Both I and II are implicit,2,1
+1_4,,Two person A and B appear in an interview. The probability of A's selection is 1/5 and the probability of B's selection is 2/7. What is the probability that only one of them is selected?,11/35,14 / 35,17 / 35,None of these,4,1
+1_5,,Statement: 'It is desirable to put the child in school at the age of 5 or so'. Assumptions: 1. At that age the child reaches appropriate level of development and is ready to learn. 2. The schools do not admit children after six years of age,Only assumption I is implicit,Only assumption II is implicit,Either I or II is implicit,Either I or II is implicit,1,1
+1_6,,Which online firm announces a new AI Technology to fight online child sexual abuse?,YAHOO,FACEBOOK,GOOGLE,TIKTOK,3,1
+1_7,,"Google launched a new search engine for scientists, data journalists. It is called as;",GenieKnows,Search Encrypt,Searchmedica,Dataset Search,4,1
+1_8,,Which among the following rebranded as Google pay to offer Instant Bank Loans?,PayPal,Payoneer,Tez,Phonepe,3,1
+1_9,,Which of the following digiLocker system did CBSE launch to the students of flood-hit Kerala?,Parinam Manjusha,eMudhra Maha Sevai,eMaha Parinam,Block Chain Technology,1,1
+1_10,5.jpg,Identify the Logo,,,,,,1
+1_11,,The Indian Institute of Technology (IIT) Kanpur has created an online tool to help people overcome issues related to mental health. The name of the tool is;,TreadWill,Smartwill,GoodWill,SmartHelp,1,2
+1_12,,"DEF, DEF2, DE2F2, _____, D2E2F3",DEF3,D3EF3,D2E3F,D2E2F2,4,2
+1_13,,Flexible pavements derive mainly from:,Cohesion alone,The binding power of bituminous materials,The flexural strength of the surface course,"Aggregate interlock, particle friction and cohesion",4,2
+1_14,,"In a compaction test, as the compaction effort is increased, the optimum moisture content",Increases,Decreases,Remains same,Increases first and thereafter decreases,4,2
+1_15,,"For seeing objects at the surface of water from a submarine under water, the instrument used is",Kaleidoscope,Periscope,Spectroscope,Telescope,2,2
+1_16,,"ICC, organised the 'Sano Cricket Curry Festival' in which city?",Sano,Tokyo,Shinjuku,Hong Kong,1,2
+1_17,,Which among the following is not a cause of growth of cities –,Trade & commerce,Industrialism,Development of transport,Hygienic outlook of people,4,3
+1_18,,Which of the following cities can be called megalopolis?,KOCHI,CHENNAI,MUMBAI,AHEMDABAD,3,3
+1_19,,Which architectural style's goal is to achieve modifiability and scalability,data flow architecture,call and return architecture,virtual machine architecture,none of the above,2,3
+1_20,,The lengthy face of the brick is known as,face,king closer,queen closer,stretcher,4,3
+2_1,,Architectural styles is composed of which of the following,a set of component types that perform some function at run time,a topological layout of these components indicating their run time inter relationships,a set of semantic constraints,all the above,3,1
+2_2,,"ELFA, GLHA, ILJA, _____, MLNA",OLPA,KLMA,LLMA,KLLA,4,1
+2_3,,CHEMICAL ACTION DURING CORROSION CONVERTS METAL INTO METALLIC COMPONENT AS,HYDROXIDE,OXIDE,SULPHATE,all the above,4,1
+2_4,,A Google-affiliated company chooses __________ for delivering internet access to remote areas using high-altitude balloons.,Kenya,Nigeria,Zimbabwe,Morocco,1,1
+2_5,,Which of the following has introduced automatic recurring payments to pay for periodic recurring expenses automatically?,Paytm,Phonepe,Mobiwik,Airtel Payment Bank,1,1
+2_6,,Find odd one out.,Island,Coast,Peninsula,Oasis,4,1
+2_7,,The overall incharge of an organisation at the site responsible for the execution of the work is,Executive engineer,Engineer,Junior engineer,Assistant angineer,2,1
+2_8,,The main principle of an organisation is,unity of command,cohegency,effective control at all levels,all the above,4,2
+2_9,,The key to profitable operation for project cost control is,to keep the project cost equal to original cost estimate,to keep the project cost equal to subsequent construction budget,to keep the project cost within the within the cost budget and knowing whenn and where job cost are deviating,none of the above,3,2
+2_10,,Maximum number of steps in a flight should generally be restricted to,10,12,15,no limit,2,2
+2_11,,Pick up the correct statement,rust is due to formation of oxides,cast iron oxidises less,Steel oxidises most,all of the above,4,2
+2_12,,plywood has the advantage of,greater tensile strength in longer direction,greater tensile strength in shorter direction,same tensile strength in all directions,none of the above,3,2
+2_13,,A library has 723 visitors on sundays and 340 on other days. Average no. of visitors perday in month of 30 days beginning with Sunday is,404,402,403,401,1,2
+2_14,,"Ratio of length and breadth of a rectangular park is 5:3. if a man cycling aalong the boundary at the speed of 18kmph completes one round in 10 mins, the the area of the park in sq m is",527.34375,5273.4375,52734.375,527343.75,4,2
+2_15,,Rolled steel beams are designated by Indian Standard series and its,,depth of section and weight per metre,width of flange and weight per metre,weight per metre and flange width,2,3
+2_16,,In levelling operation,Weight per metre and depth of section,"whenstaff is bing carried forward, instrument must remain stationary",both a & b,neither a nor b,3,3
+2_17,,The spatial feature of urbanisation in India has ben,localised in nature,balanced,both a & b,none of the above,1,3
+2_18,,_________ refers the refurbishing of old buildings&use of previously developed land in urban areas,urban planning,urban recycling,urbanism,none of these,2,3
+2_19,,A scientific distinction between rural and urban community can be made on the basis of,density of population,area covered,occupation followed by people,none of the above,1,3
+2_20,,Which is the biggest populated city in India as per the 2011 census?,Kolkata,Delhi,Kochi,Mumbai,4,1
+3_1,,Pick up the commonly adopted geophysical method in Civil Enginering from the following,the seisomic method,elecrical resistivity method,gravitational method,both (a) and (b) of the above,4,1
+3_2,,"A tank is 30m long, 15m wide and 8m deep. Cost of plastering wall and bottom at 75 paisa per sq m is",Rs. 877.5,Rs. 876.5,Rs. 867.5,Rs. 866.5,1,1
+3_3,,Bearing capacity of a soil depends on:,amount of direction & load,on the type of soil,shape and size of footing,independent of rate of loading,1,2
+3_4,,Palm Islands in Dubai and Kansai International Airport in Japan are examples of,desalination,cloud reclaimation,water reclaimation,land reclaimation,4,2
+3_5,,Which of the following represents an activity,preparation of breakfast,excavation for foundation,curing of concrete,all of the above,4,2
+3_6,,Preliminary test is repeated if the difference of compressive strength of three test specimens exceeds,5kg/cm2,8kg/cm2,10kg/cm2,15kg/cm2,4,3
+3_7,,"The deficiency in rain catch due to vertical acc. Of air forced upward over the gauge, is",greater for heavy rain,greater for lighter rain,greater for large drops,lesser for small rain drops,2,3
+3_8,,Quick Lime is: 1.) slow in setting 2.)rapid in slacking 3.) good strength,both 2 and 3,only 1,only 2,both 1 and 2,4,3
+3_9,,The name of a candidate for the office of president of India may be proposed by,any five citizens of India,any 5 members of parliament,any one member of electoral college,any ten members of the Electoral College,4,3
+3_10,,5 yrs ago the avg of family of 8 members was 22. With a birth of a new child average remains same. Age of child is,16 yrs 3 months,17 yrs 6 months,18 years,18 yrs 8 months,3,1
+3_11,1.jpg,Identify the Logo,,,,,,1
+3_12,2.jpg,Identify the Logo,,,,,,1
+3_13,,Aviation fuel for jet aeroplane consists of purified?,Petrol,Kerosene,Gasoline,Diesel,2,1
+3_14,,"The aggregate containing moisture in pores and having its surface dry, is known as",Moist aggregates,Very dry aggregates,Dry aggregates,Saturated surface dry aggregate,4,2
+3_15,,"The no. that must be added to each of the no. 5,27,14 &37 to make the ratio of first two nos. equal to the ratio of the last two numbers is",183,190,193,198,3,2
+3_16,,In S.I. system:,pressure exerted in N/m2,surface tension expressed in N/m,power is expressed in watts,all of the above,4,2
+3_17,,"The Parliament can restrict or abrogate by law, fundamental rights with respect to",members of armed forces,forces charged with maintenance of public order,persons employed in intelligence,all of the above,4,3
+3_18,,Radiocarbon is produced in the atmosphere as a result of,Collison between fast neutrons and nitrogen nuclei present in the atmosphere,Action of ultraviolet light from the sun on atmospheric oxygen,Action of solar radiations particularly cosmic rays on carbon dioxide present in the atmosphere,Lghtning discharge in atmosphere,1,3
+3_19,,"Based on the following rocks and minerals select the correct answer: quartz, shale, basalt, granite, marble, gypsum",there is no sedimentary rock,basalt & granite are metamorphic rocks,granite is igneous rock,quartz and mica are minerals,4,2
+3_20,,"Cpmpared to mild steel, cast iron has: 1.High compressive str. 2.high tensile str. 3.low compressive str. 4.low tensile str.",1 and 2,2 and 3,3 and 4,1 and 4,4,2
+4_1,3.jpg,Identify the Logo,,,,,,1
+4_2,4.jpg,Identify the Logo,,,,,,1
+4_3,,Which of the following is mostly used in road construction?,Tar,Bitumen,Lacquer,Black Paint,2,1
+4_4,,"The cost price of a Rs. 200 stock at 5% discount, when brokerage is 1/4% is",197.25,196.25,195.25,194.25,3,1
+4_5,,Modular co-ordination of construction means proper,planning,designing,execution,all of the above,4,2
+4_6,,What is principle of economy?,Design is acceptable only when it is realised,Designs that make easier to change are better,"Designs that can be built for less money, in less time with less risk are better",Designs can meet more stakeholder needs and desired subject to constraints are better,3,2
+4_7,,A&B are 2 towns. A person covrs the distance from AtoB on cycle at 23kmph and returns on a boat at 5kmph. His average speed throughout the journey is,8.3,8.2,8.4,8.1,2,2
+4_8,,The stainless steels owe their resistance to the presence of,Carbon,Sulphur,Manganese,Chromium,4,2
+4_9,,"In order to form protective oxide layer, ratio of the volume of oxide formed to that of metal consumed should be",greater than 1,less than 1,much greater than 1,none of the above,1,2
+4_10,,Steel tanks are mainly designed for,Weight of tank,Wind Pressure,Water Pressure,Earthquake forces,3,2
+4_11,,Part of brck obtained by cutting the triangular corner portion from the middle points of width and length is called,king closer,queen closer,stretcher,none of these,1,3
+4_12,,"If 1500g of water is required to have a cement paste of 1875g of normal consistency, the % of water is",20%,25%,30%,35%,2,3
+4_13,,"Under normal consitions using an ordinary cement, the period of removal of the form work is:",7 days for beam soffits,14 days for bottom slabs of span 4.6m & more,21 days for bottom beams over 6m spans,all of the above,4,3
+4_14,,Pick the correct statement from the following,eyepiece plays no part in defining line of sight,diaphragm plays no part in defining line of sight,optical centre of objective plays no part in defining the line of sight,none of these,1,3
+4_15,,The cylinder strength of concrete is less than the cube strength because of,difference in shape of cross section of specimens,difference in slenderness ratio of the specimens,friction between the concrete specimens and the steel plate of the testig machine,cubes are tested without clapping but cylinders are tested with clapping,2,3
+4_16,,The treatment that should be given to the water from a tube from a deep tube well is,pre-settling only,coagulation and flocculation only,filtration only,disinfection only,4,3
+4_17,,"If integers m&n are chosen at random b/w 1&100, the probability that number (7^m+7^n) is divisible by 5 is",1/4,1/7,1/8,1/49,1,3
+4_18,,A certain reaction rate increases 1000 fold in presence of ctalyst @27 degrees. Original activation energy is 98kJ/mol. Activation energy of new pathway,80.77kJ,56.38kJ,24.67kJ,90.43kJ,1,3
+4_19,,Which one of the methds of tunnelling does not require the use of time bearing,linear plate method,shield method,compressed method,all of these,4,3
+4_20,,Pick the correct statement from the following during tunnel excavation,oxygen should not be less than 19.5%,CO2 should not be more than 0.5%,Hydrogen sulphide should not be more than 0.001%,all of the above,4,3
