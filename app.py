@@ -278,5 +278,5 @@ def passQue():
     return redirect('/question')
 
 if __name__ == "__main__":
-    app.run(debug=True,port=5006,use_evalex=False)
+    app.run(debug=True,port=8000,use_evalex=False)
     # app.run(debug=True,host='192.168.43.53',port=5007,use_evalex=False)
