@@ -41,7 +41,7 @@ begin
 	if exists( SELECT user_id FROM players WHERE  reg_no = p_regno) 
     then select 'Not unique';
   else
-	insert into players(name,reg_no,email,mobile,password,curr_ques) values (p_name,p_regno,p_email,p_mobile,p_password,'1');
+	insert into players(name,reg_no,email,mobile,password,curr_ques) values (p_name,p_regno,p_email,p_mobile,p_password,'1_1');
     end if;
 end$$
 delimiter ;

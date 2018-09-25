@@ -54,24 +54,9 @@ def logout():
 def rules():
     return render_template('rules.html')
 
-@app.route('/leaderboard')
-def leaderboard():
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    try:
-        cursor.execute("select name, points from players natural join scores order by cast(points as decimal) desc limit 10;")
-        data = cursor.fetchall()
-        players = []
-        i = 1
-        for row in data:
-            user={}
-            user['name']=row[0];
-            user['pos'] = i
-            players.append(user)
-            i = i+1
-    except Exception as e:
-        print str(e)
-    return render_template('leaderboard.html', players = players, namex = session['name'])
+@app.route('/instructions')
+def instr():
+    return render_template('instructions.html')
 
 @app.route('/signup',methods=['POST'])
 def signUp():
@@ -159,15 +144,25 @@ def validateLogin():
         cursor.close()
         conn.close()
 
-def updateScore():
+def updateScore(isAnswerCorrect):
     conn = mysql.connect()
     cursor = conn.cursor()
     try:
         cursor.execute("SELECT * FROM scores WHERE user_id = %s", (session['user_id']))
         data = cursor.fetchall()
         score = 0
+        if(session['curr_difficulty'] == 1):
+            points_to_be_added = 20
+        elif(session['curr_difficulty'] == 2):
+            points_to_be_added = 30
+        elif(session['curr_difficulty'] == 3):
+            points_to_be_added = 50
+
+        if(not isAnswerCorrect):
+            points_to_be_added = 0
+
         for player in data:
-            score = int(player[1]) + 5
+            score = int(player[1]) + points_to_be_added
         cursor.execute("UPDATE scores SET points = %s WHERE user_id = %s", (str(score), session['user_id']))
         conn.commit()
     except Exception as e:
@@ -176,7 +171,7 @@ def updateScore():
 
 def update():
     if(session.get('user_id')):
-        session['curr_ques'] = str(int(session['curr_ques']) + 1)
+        session['curr_ques'] = session['curr_ques'].split('_')[0]+ '_' + str(int(session['curr_ques'].split('_')[1]) + 1)
         conn = mysql.connect()
         try:
             cursor = conn.cursor()
@@ -196,16 +191,17 @@ def getQuestion():
             print str(e)
         data = cursor.fetchall()
         for value in data:
-            story = value[1]
-            ques = value[2]
-            quesImage = value[3]
+            question = value[1]
+            option1 = value[2]
+            option2 = value[3]
+            option3 = value[4]
+            option4 = value[5]
+            quesImage = value[6]
+            session['curr_difficulty'] = value[8]
             if(quesImage == 'False'):
                 quesImage = False
-            session['curr_ans'] = value[4]
-            hint = value[5]
-            if(hint == 'False'):
-                hint = False
-        params = {'story':story, 'ques':ques, 'quesImage':quesImage, 'ans':session['curr_ans'], 'hint':hint}
+            session['curr_ans'] = value[7]
+        params = {'ques':question, 'option1':option1, 'option2':option2, 'option3':option3, 'option4':option4, 'difficulty':session['curr_difficulty'], 'quesImage':quesImage, 'ans':session['curr_ans']}
         conn.close()
         return params
 
@@ -213,8 +209,9 @@ def getQuestion():
 def question():
     if(session.get('user_id')):
         params = getQuestion()
-        print session['incorrect']
-        return render_template('question.html', params = params, hint = False,name = session['name'], incorrect = session['incorrect'])
+        params['level'] = session['curr_ques'].split('_')[0]
+        params['question_number'] = session['curr_ques'].split('_')[1]
+        return render_template('questionfib.html', params = params)
     else:
         return redirect('/login')
 
@@ -222,61 +219,12 @@ def question():
 @app.route('/question', methods=['POST'])
 def validateAns():
     if(session.get('user_id')):
-        _inputAns = str(request.form['answer']).lower().rstrip()
-        _inputAns = '"' + _inputAns + '"'
-        if(_inputAns == session['curr_ans'].lower().rstrip()):
-            print 'updatescore'
-            updateScore()
-            session['incorrect'] = False
-        else:
-            session['incorrect'] = True
+        _inputAns = int(request.form['answer'])
+        updateScore(_inputAns == int(session['curr_ans']))
         return redirect('/question')
     else:
         return redirect('/signup')
 
-def updateHintScore():
-    if(session.get('user_id')):
-        conn = mysql.connect()
-        cursor = conn.cursor()
-        try:
-            cursor.execute("SELECT * FROM scores WHERE user_id = %s", (session['user_id']))
-            data = cursor.fetchall()
-            score = 0
-            for player in data:
-                score = str(int(player[1]) - 10)
-                print 'score update', score
-            cursor.execute("UPDATE scores SET points = %s WHERE user_id = %s", (score, session['user_id']))
-            conn.commit()
-        except Exception as e:
-            print str(e)
-        return True
-
-@app.route('/showHint', methods=['POST'])
-def showHint():
-    if(session.get('user_id')):
-        updateHintScore()
-        params = getQuestion()
-        return render_template('question.html', params = params, hint = params['hint'])
-    else:
-        return redirect('/singup')
-
-@app.route('/pass', methods=['POST'])
-def passQue():
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    try:
-        cursor.execute("SELECT * FROM scores WHERE user_id = %s", (session['user_id']))
-        data = cursor.fetchall()
-        score = 0
-        for player in data:
-            score = int(player[1]) - 15
-        cursor.execute("UPDATE scores SET points = %s WHERE user_id = %s", (str(score), session['user_id']))
-        conn.commit()
-        update()
-    except Exception as e:
-        print str(e)
-    return redirect('/question')
-
 if __name__ == "__main__":
-    app.run(debug=True,port=5006,use_evalex=False)
+    app.run(debug=True,port=9000,use_evalex=False)
     # app.run(debug=True,host='192.168.43.53',port=5007,use_evalex=False)
