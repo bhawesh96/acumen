@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'kodamr13_inquiz'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'oEO8CI1![0D='
+app.config['MYSQL_DATABASE_PASSWORD'] = 'rtg8055'
 app.config['MYSQL_DATABASE_DB'] = 'kodamr13_inquizitive'
 app.config['MYSQL_DATABASE_HOST'] = '103.50.162.66'
 
