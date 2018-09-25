@@ -26,7 +26,7 @@ app.secret_key = '8bf9547569cd5a638931a8639cf9f86237931e92'
 def main():
     session['incorrect'] = False
     return redirect('/question')
-    
+
 @app.route('/login')
 def showSignUp():
     if(session.get('user')):
@@ -224,6 +224,10 @@ def validateAns():
         return redirect('/question')
     else:
         return redirect('/signup')
+
+@app.route('/admin')
+def admin():
+    return redirect('https://i0.kym-cdn.com/photos/images/original/000/232/114/e39.png', code=302)
 
 if __name__ == "__main__":
     app.run(debug=True,port=8000,use_evalex=False)

@@ -50,7 +50,7 @@ Question
     </div>
     <p id="question" style="letter-spacing: 2px;">{{params.ques}}</p>
     {%if params.quesImage%}
-      <img id="quesImage" src="../static/image/{{params.quesImage}} " alt="{{params.quesImage}}">
+      <img id="quesImage" src="../static/image/{{params.quesImage}}" alt="{{params.quesImage}}" style="width: 30%;">
     {%endif%}
     <form action="/question" method="POST">
     <div class="inputRadio" name="answer" value="1" id="1" onclick="myFn('1')">
