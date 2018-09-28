@@ -23,6 +23,19 @@
 <link href="../static/css/style.css" rel='stylesheet' type='text/css' media="all" />
 {% block extStyle %}
 
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   min-height: 100px;
+   background-color: #202123;
+   color: white;
+   text-align: center;
+}
+</style>
+
 {% endblock %}
 <!-- /css -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -38,7 +51,7 @@
 <body>
 {% block body %}
 
-{% endblock %}  
+{% endblock %}
 
 {% block end_extJS %}
 

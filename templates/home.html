@@ -1,0 +1,60 @@
+{% extends "theme.html" %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block extStyle %}
+<link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
+{% endblock %}
+
+<style type="text/css">
+  a.signup {
+    margin-top: 3%;
+    margin-right: 14%;
+    float: right;
+    color: white;
+  }
+  video {
+    position: fixed;
+    margin-top: -20px;
+  }
+}
+</style>
+
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Welcome {{namex}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><a href="/instructions">Instructions</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="../static/video/login-signup.mp4" type="video/mp4">
+</video>
+
+<div class="content-w3ls instructions" style="position: relative;">
+  <p>It was a cold, dark night in Winterfell and The Mother of Dragons, Lord Snow and many others sat around the fire discussing how they could protect Winterfell against an attack from The Whitewalkers, suddenly out came Bran Stark, sweating and shouting, “A WALL! A WALL!” and explains the vision he just had. Bran pulls up a chair, sits and after calming himself down tells everyone about a detailed plan to protect Winterfell from an imminent attack which at its core requires the construction of a wall. A wall to keep all the Whitewalkers away from the seven kingdoms.</p>
+  <p>The only way the wall would be able to keep The Whitewalkers out would be if it was made structurally strong and sound built with the strongest materials in the entire land. Fortunately, Bran Stark came up with a plan to build this wall, but it’s not only a long but also a very tough quest to defeat The Night King’s army.</p>
+  <a href="/newLevel"><button class="register">Continue Playing</button></a>
+</div>
+
+{% endblock %}  

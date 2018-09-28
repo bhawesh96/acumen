@@ -1,0 +1,61 @@
+{% extends "theme.html" %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block extStyle %}
+<link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
+{% endblock %}
+
+<style type="text/css">
+  a.signup {
+    margin-top: 3%;
+    margin-right: 14%;
+    float: right;
+    color: white;
+  }
+  video {
+    position: fixed;
+    margin-top: -20px;
+  }
+}
+</style>
+
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Welcome {{namex}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><a href="/instructions">Instructions</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="../static/video/login-signup.mp4" type="video/mp4">
+</video>
+
+<div class="content-w3ls instructions">
+  <p>The last piece of the puzzle, the one thing that would make the wall truly impenetrable was Dragonglass, but the only place they could be found was North of Winterfell, in unknown and hostile territory. Tyrion was adamant about letting anyone go Beyond the Wall and risk their lives. Queen Daenerys who has been sitting all this time doing nothing gets frustrated and storms out of the room going towards her army and her dragons. Tyrion goes after her and tells her,” Sometimes doing nothing is the hardest thing to do. If you die, everything is lost” and the Queen replies, “Enough with the clever plans, I have three large dragons and I’m going to fly them Beyond the Wall.” She does not take no for an answer and with her army marches away.</p>
+  <p>The Queen finds a huge tower where the Dragon Glass is kept but as she approaches the tower she realizes that the tower is locked with magic. As she begins to unlock the tower’s magic, The Queen and her army look around and are ambushed by White Walkers and only one word echoed through the storm, ‘Dracarys.’</p>
+  <h3>“The Queen answers all the questions and acquires Dragon Glass.”</h3>
+  <a href="/question"><button class="register">Continue to Level 4</button></a>
+</div>
+
+{% endblock %}  

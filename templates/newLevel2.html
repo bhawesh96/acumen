@@ -1,0 +1,62 @@
+{% extends "theme.html" %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block extStyle %}
+<link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
+{% endblock %}
+
+<style type="text/css">
+  a.signup {
+    margin-top: 3%;
+    margin-right: 14%;
+    float: right;
+    color: white;
+  }
+  video {
+    position: fixed;
+    margin-top: -20px;
+  }
+}
+</style>
+
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Welcome {{namex}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><a href="/instructions">Instructions</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="../static/video/login-signup.mp4" type="video/mp4">
+</video>
+
+<div class="content-w3ls instructions">
+  <p>Time and Tide wait for none and neither does Arya Stark and she embarks on a dangerous journey to Braavos which is the next crucial step in Bran’s carefully laid out plan. </p>
+  <p>The Iron Bank in Braavos consists of the strongest steel which is important for reinforcing the foundation brought forth by Jon but the only way Arya can get these reinforcements is if she can face her mentor and teacher and defeat him in combat to gain access to the vaults in the Iron Bank. No one knows the streets and the people of Braavos like Arya does and her determination and effectiveness makes her dangerous and perfect for this mission.</p>
+  <p>As she reaches the House of Black and White where her mentor Jaqen H’ghar trained his Faceless Men and turned them into “No One.” As she enters the House of Black and White, she looks around for the keys to the vaults and just as she lays eyes on them, she is greeted with hostility from none other than Jaqen H’ghar himself who says “Help was not promised, lovely girl. Only death.” She replies, “Today I’m going to put a sword through your eye and out the back of your skull.” She fights him and in a gruesome battle after suffering injuries on defeating him says, “Valar Morghulis.”</p>
+  <h3>“She navigates the maze by answering all the questions and gains access to the gold.”</h3>
+  <a href="/question"><button class="register">Continue to Level 2</button></a>
+</div>
+
+{% endblock %}  

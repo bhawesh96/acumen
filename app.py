@@ -24,19 +24,21 @@ app.secret_key = '8bf9547569cd5a638931a8639cf9f86237931e92'
 @app.route('/')
 @app.route('/home')
 def main():
-    session['incorrect'] = False
-    return redirect('/question')
+    if(session.get('user_id')):
+        return render_template('home.html')
+    else:
+        return redirect('/login')
 
 @app.route('/login')
 def showSignUp():
-    if(session.get('user')):
+    if(session.get('user_id')):
         return redirect('/')
     else:
         return render_template('signin.html')
 
 @app.route('/signup')
 def showSignIn():
-    if(session.get('user')):
+    if(session.get('user_id')):
         return redirect('/')
     else:
         return render_template('signup.html')
@@ -132,7 +134,7 @@ def validateLogin():
                     return redirect('/')
                 else:
                     print 'not validated'
-                    return render_template('404.html', error = "not validated")            
+                    return render_template('signin.html', error="not validated")            
             except Exception as e:
                 return json.dumps({'errory':str(e)})
         else:
@@ -171,11 +173,19 @@ def updateScore(isAnswerCorrect):
 
 def update():
     if(session.get('user_id')):
+        if(session['curr_ques'] == '1_20'):
+            session['curr_rapid'] == 1
+        elif(session['curr_ques'] == '2_20'):
+            session['curr_rapid'] == 2
+        elif(session['curr_ques'] == '3_20'):
+            session['curr_rapid'] == 3
+        elif(session['curr_ques'] == '4_20'):
+            session['curr_rapid'] == 4
         session['curr_ques'] = session['curr_ques'].split('_')[0]+ '_' + str(int(session['curr_ques'].split('_')[1]) + 1)
         conn = mysql.connect()
         try:
             cursor = conn.cursor()
-            cursor.execute("UPDATE players SET curr_ques= %s WHERE user_id = %s", (session['curr_ques'], session['user_id']))
+            cursor.execute("UPDATE players SET curr_ques= %s, curr_rapid= %s WHERE user_id = %s", (session['curr_ques'], session['curr_rapid'], session['user_id']))
             conn.commit()
         except Exception as e:
             print str(e)
@@ -205,16 +215,27 @@ def getQuestion():
         conn.close()
         return params
 
+@app.route('/newLevel')
+def newLevel():
+    if(session.get('user_id')):
+        if(session['curr_ques'] == '1_1'):
+            return render_template('newLevel1.html')
+        elif(session['curr_ques'] == '2_1'):
+            return render_template('newLevel2.html')
+        elif(session['curr_ques'] == '3_1'):
+            return render_template('newLevel3.html')
+        elif(session['curr_ques'] == '4_1'):
+            return render_template('newLevel4.html')
+
 @app.route('/question')
 def question():
     if(session.get('user_id')):
         params = getQuestion()
         params['level'] = session['curr_ques'].split('_')[0]
         params['question_number'] = session['curr_ques'].split('_')[1]
-        return render_template('questionfib.html', params = params)
+        return render_template('questionfib.html', params = params)    
     else:
         return redirect('/login')
-
 
 @app.route('/question', methods=['POST'])
 def validateAns():

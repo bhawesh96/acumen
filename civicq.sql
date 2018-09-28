@@ -41,12 +41,12 @@ begin
 	if exists( SELECT user_id FROM players WHERE  reg_no = p_regno) 
     then select 'Not unique';
   else
-	insert into players(name,reg_no,email,mobile,password,curr_ques) values (p_name,p_regno,p_email,p_mobile,p_password,'1_1');
+	insert into players(name,reg_no,email,mobile,password,curr_ques, curr_rapid) values (p_name,p_regno,p_email,p_mobile,p_password,'1_1', 0);
     end if;
 end$$
 delimiter ;
 
--- call insert_player_inquizitive('rahul','150911122','abc@gmail.com','9008318345','rahul123');
+-- call insert_player_inquizitive('rahul','150911122','abc@gmail.com','9008318345','rahul');
 
 -- select * from players;
 

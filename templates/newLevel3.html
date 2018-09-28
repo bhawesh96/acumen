@@ -1,0 +1,62 @@
+{% extends "theme.html" %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block extStyle %}
+<link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
+{% endblock %}
+
+<style type="text/css">
+  a.signup {
+    margin-top: 3%;
+    margin-right: 14%;
+    float: right;
+    color: white;
+  }
+  video {
+    position: fixed;
+    margin-top: -20px;
+  }
+}
+</style>
+
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Welcome {{namex}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><a href="/instructions">Instructions</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="../static/video/login-signup.mp4" type="video/mp4">
+</video>
+
+<div class="content-w3ls instructions">
+  <p>Jon and Arya Stark happy with their success were back on their way to Winterfell but now our mighty heroes are faced with an even bigger problem, a lack of gold to buy the other materials and man power to finish the wall. As Bran and Daenerys weigh their options and discuss strategies out comes Tyrion with a plan to save the day by stealing what they require from Casterly Rock. Tyrion chooses Brienne of Tarth to accompany him on his journey and when he asks for volunteers, Tormund Giantsbane raises his hand. Tyrion asks him,” What use are you to me?” and Tormund says,” Plenty of little men have tried to put their swords through my heart. There are plenty of little skeletons buried in the woods.”</p>
+  <p>As they approach Casterly Rock by sea, Brienne walks up to Tyrion and stands beside him. Tyrion with a drink in his hand sensing the danger they were walking into tells her,” Death is so final, whereas Life, ah, Life is full of possibilities.” They snuck into the sewage system where they were ambushed by a small army and they started fighting their way through to the heart of Casterly Rock.</p>
+  <h3>“Tyrion answers all the questions and reaches the heart of the gold mine.”</h3>
+  <p>After they come out of Casterly Rock and are on their way back to Winterfell, Tyrion says,“ The next time I have an idea like that, punch me in the face.”</p>
+  <a href="/question"><button class="register">Continue to Level 3</button></a>
+</div>
+
+{% endblock %}  
