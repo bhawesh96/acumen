@@ -310,6 +310,14 @@ def validateAns():
 @app.route('/question')
 def question():
     if(session.get('user_id')):
+
+        ## after 1_20 curr_ques is updated to 1_21 and curr_rapid (boolean to 1)##
+        ## you have to redirct to /rapidfire and update the curr_rapid to zero!!!
+
+        ## rapid fire round will be done (hopefully without errors) using all different and new variables
+        ## so all other session variable values are the same 1_21(example)
+        ## control will be redirected to /question once the rapidfire round completes properly!
+        ## rest you have to do.
         params = getQuestion()
         params['level'] = session['curr_ques'].split('_')[0]
         params['question_number'] = session['curr_ques'].split('_')[1]
