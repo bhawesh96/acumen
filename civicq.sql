@@ -16,6 +16,12 @@ CREATE TABLE `kodamr13_inquizitive`.`scores` (
   `points` varchar(20)
   );
 
+CREATE TABLE `kodamr13_inquizitive`.`winner_rapid` (
+  `user_id` BIGINT REFERENCES `players` (`user_id`),
+  `rapid` INT,
+  PRIMARY KEY (`rapid`)
+  );
+
 -- drop table if exists `kodamr13_inquizitive`.questions;
 
 CREATE TABLE `kodamr13_inquizitive`.`questions` (
