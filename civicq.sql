@@ -30,6 +30,17 @@ CREATE TABLE `kodamr13_inquizitive`.`questions` (
   `difficulty` INT,
   PRIMARY KEY (`question_id`));
 
+CREATE TABLE `kodamr13_inquizitive`.`rapid` (
+  `question_id` VARCHAR(20),
+  `question` VARCHAR(400),
+  `option1` VARCHAR(100),
+  `option2` VARCHAR(100),
+  `option3` VARCHAR(100),
+  `option4` VARCHAR(100),
+  `answer` INT,
+  PRIMARY KEY (`question_id`));
+
+
 -- CREATE PLAYER PROCEDURE
 -- SIGNS UP A USER IF NOT ALREADY EXISTS
 
