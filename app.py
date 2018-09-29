@@ -202,22 +202,26 @@ def update():
     if(session.get('user_id')):
         session['curr_rapid'] = 0
         if(session['curr_ques'] == '1_20'):
+            makeRapidZero()
             session['curr_rapid'] = 1
             session['correct_rapid'] = 0
-            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid_q'] = '1_1'
         elif(session['curr_ques'] == '2_20'):
-            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            makeRapidZero()
+            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid'] = 2
             session['correct_rapid'] = 0
             session['curr_rapid_q'] = '2_1'
         elif(session['curr_ques'] == '3_20'):
-            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            makeRapidZero()
+            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid'] = 3
             session['correct_rapid'] = 0
             session['curr_rapid_q'] = '3_1'
         elif(session['curr_ques'] == '4_20'):
-            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            makeRapidZero()
+            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid'] = 4
             session['correct_rapid'] = 0
             session['curr_rapid_q'] = '4_1'
