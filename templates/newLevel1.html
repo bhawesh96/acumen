@@ -8,19 +8,17 @@ SignUp
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
 
+{% block intStyle %}
 <style type="text/css">
-  a.signup {
-    margin-top: 3%;
-    margin-right: 14%;
-    float: right;
-    color: white;
-  }
-  video {
-    position: fixed;
-    margin-top: -20px;
+  body {
+    background: {{bg|safe}};
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
+{% endblock %}
+
 
 {% block body %}
 <nav class="navbar navbar-inverse">
@@ -47,15 +45,17 @@ SignUp
   </div>
 </nav>
 
-<video autoplay loop id="video-background" muted plays-inline>
-  <source src="../static/video/login-signup.mp4" type="video/mp4">
-</video>
-
 <div class="content-w3ls instructions" style="position: relative;">
   <p>As per Bran’s vision and according to his plan of action, Jon Snow and his raiding party set out on their long and tedious journey to Westeros where Cersei Lannister resided on the Iron Throne. They were able to sneak in with great difficulty but only with the help of Jamie Lannister, The King Slayer, who guided them to the magical cave where lay the base, the foundation of their fortification against the intruders. This foundation contained a mix of cement with the finest quality of sand and rocks and would play a monumental role in the strength of their defenses.</p>
   <p>They reach the cave and were greeted by Lord Varys who was waiting their arrival. Jon Snow asks “Lord Varys, how do you know about this place?” to which he replies “You know nothing Jon Snow. I am the Master of Whisperers. My role is to be sly, obsequious and without scruples.” He gives Jon Snow directions and instructions as to navigate through the cave and tells him that this part of his journey is one he must make alone. As Jon Snow makes his way inside the dark, damp cave and after what seemed hours, he came across a blinding light which revealed the first part of the material required, i.e. concrete. Before he can get to it, he is faced with a challenge which determines whether or not he gets the material.</p>
   <h4>“Jon Snow answers all the questions correctly and with the help of his raiding party he gathers what they require and returns to Winterfell.”</h4>
   <a href="/question"><button class="register">Continue to Level 1</button></a>
 </div>
-
+<footer>
+  <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
+    <h3 style="color: white; font-size: 30px">Our Sponsors</h3>
+    <img src="../static/image/sponsor1.jpeg">
+    <img src="../static/image/sponsor2.jpeg">
+  </div>
+</footer>
 {% endblock %}  

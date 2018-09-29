@@ -280,13 +280,17 @@ def getQuestion():
 def newLevel():
     if(session.get('user_id')):
         if(session['curr_ques'] == '1_1'):
-            return render_template('newLevel1.html')
+            bg = "url('../static/image/level_1_storyline.jpg')"
+            return render_template('newLevel1.html', bg=bg)
         elif(session['curr_ques'] == '2_1'):
-            return render_template('newLevel2.html')
+            bg = "url('../static/image/level_2_storyline.jpg')"
+            return render_template('newLevel2.html', bg=bg)
         elif(session['curr_ques'] == '3_1'):
-            return render_template('newLevel3.html')
+            bg = "url('../static/image/level_3_storyline.jpg')"
+            return render_template('newLevel3.html', bg=bg)
         elif(session['curr_ques'] == '4_1'):
-            return render_template('newLevel4.html')
+            bg = "url('../static/image/level_4_storyline.jpg')"
+            return render_template('newLevel4.html', bg=bg)
         else:
             return redirect('/question')
 
@@ -377,9 +381,16 @@ def question():
         ## rest you have to do.
         params = getQuestion()
         params['level'] = session['curr_ques'].split('_')[0]
+        if(params['level'] == '1'):
+            bg = "url('../static/image/level_1_questions.jpg')"
+        elif(params['level'] == '2'):
+            bg = "url('../static/image/level_2_questions.jpg')"
+        elif(params['level'] == '3'):
+            bg = "url('../static/image/level_3_questions.jpg')"
+        elif(params['level'] == '4'):
+            bg = "url('../static/image/level_4_questions.jpg')"
         params['question_number'] = session['curr_ques'].split('_')[1]
-        flash('You were successfully logged in')
-        return render_template('questionfib.html', params = params)    
+        return render_template('questionfib.html', params = params, bg=bg)
     else:
         return redirect('/login')
 

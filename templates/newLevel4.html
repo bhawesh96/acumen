@@ -8,19 +8,16 @@ SignUp
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
 
+{% block intStyle %}
 <style type="text/css">
-  a.signup {
-    margin-top: 3%;
-    margin-right: 14%;
-    float: right;
-    color: white;
-  }
-  video {
-    position: fixed;
-    margin-top: -20px;
+  body {
+    background: {{bg|safe}};
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
+{% endblock %}
 
 {% block body %}
 <nav class="navbar navbar-inverse">
@@ -47,15 +44,17 @@ SignUp
   </div>
 </nav>
 
-<video autoplay loop id="video-background" muted plays-inline>
-  <source src="../static/video/login-signup.mp4" type="video/mp4">
-</video>
-
 <div class="content-w3ls instructions" style="position: relative;">
   <p>The last piece of the puzzle, the one thing that would make the wall truly impenetrable was Dragonglass, but the only place they could be found was North of Winterfell, in unknown and hostile territory. Tyrion was adamant about letting anyone go Beyond the Wall and risk their lives. Queen Daenerys who has been sitting all this time doing nothing gets frustrated and storms out of the room going towards her army and her dragons. Tyrion goes after her and tells her,” Sometimes doing nothing is the hardest thing to do. If you die, everything is lost” and the Queen replies, “Enough with the clever plans, I have three large dragons and I’m going to fly them Beyond the Wall.” She does not take no for an answer and with her army marches away.</p>
   <p>The Queen finds a huge tower where the Dragon Glass is kept but as she approaches the tower she realizes that the tower is locked with magic. As she begins to unlock the tower’s magic, The Queen and her army look around and are ambushed by White Walkers and only one word echoed through the storm, ‘Dracarys.’</p>
   <h3>“The Queen answers all the questions and acquires Dragon Glass.”</h3>
   <a href="/question"><button class="register">Continue to Level 4</button></a>
 </div>
-
+<footer>
+  <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
+    <h3 style="color: white; font-size: 30px">Our Sponsors</h3>
+    <img src="../static/image/sponsor1.jpeg">
+    <img src="../static/image/sponsor2.jpeg">
+  </div>
+</footer>
 {% endblock %}  

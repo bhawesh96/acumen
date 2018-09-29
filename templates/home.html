@@ -8,19 +8,16 @@ SignUp
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
 
+{% block intStyle %}
 <style type="text/css">
-  a.signup {
-    margin-top: 3%;
-    margin-right: 14%;
-    float: right;
-    color: white;
-  }
-  video {
-    position: fixed;
-    margin-top: -20px;
+  body {
+    background: url("../static/image/main_storyline.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
+{% endblock %}
 
 {% block body %}
 <nav class="navbar navbar-inverse">
@@ -46,10 +43,6 @@ SignUp
     </div>
   </div>
 </nav>
-
-<video autoplay loop id="video-background" muted plays-inline style="margin-top: -20px">
-  <source src="../static/video/login-signup.mp4" type="video/mp4">
-</video>
 
 <div class="content-w3ls instructions" style="position: relative;">
   <p>It was a cold, dark night in Winterfell and The Mother of Dragons, Lord Snow and many others sat around the fire discussing how they could protect Winterfell against an attack from The Whitewalkers, suddenly out came Bran Stark, sweating and shouting, “A WALL! A WALL!” and explains the vision he just had. Bran pulls up a chair, sits and after calming himself down tells everyone about a detailed plan to protect Winterfell from an imminent attack which at its core requires the construction of a wall. A wall to keep all the Whitewalkers away from the seven kingdoms.</p>

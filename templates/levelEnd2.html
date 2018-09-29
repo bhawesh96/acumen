@@ -7,7 +7,22 @@ SignUp
 {% block extStyle %}
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
-
+{% block intStyle %}
+<style type="text/css">
+  a.signup {
+    margin-top: 3%;
+    margin-right: 14%;
+    float: right;
+    color: white;
+  }
+  body {
+    background-image: url('../static/image/each_level_result.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+</style>
+{% endblock %}
 {% block body %}
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -41,5 +56,12 @@ SignUp
   {%if showRapid!=0%}<a href="/rapidfire"><button class="register">Play Rapid Fire of level 2</button></a>{%endif%}
 </div>
 </div>
+<footer>
+  <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
+    <h3 style="color: white; font-size: 30px">Our Sponsors</h3>
+    <img src="../static/image/sponsor1.jpeg">
+    <img src="../static/image/sponsor2.jpeg">
+  </div>
+</footer>
 
 {% endblock %}  

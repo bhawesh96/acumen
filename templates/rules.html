@@ -8,6 +8,7 @@ SignUp
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
 
+{% block intStyle %}
 <style type="text/css">
   a.signup {
     margin-top: 3%;
@@ -15,12 +16,15 @@ SignUp
     float: right;
     color: white;
   }
-  video {
-    position: fixed;
-    margin-top: -20px;
+  body {
+    background-image: url('../static/image/rules_page.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
+{% endblock %}
+
 
 {% block body %}
 <nav class="navbar navbar-inverse">
@@ -47,7 +51,9 @@ SignUp
   </div>
 </nav>
 
-<div class="content-w3ls rules">
+
+
+<div class="content-w3ls rules" style="position: relative;">
   <ol id="rulesOL">
     <li>1. The gold coins you earn in one level will only be used during that that level and cannot be carried forward.</li>
     <li>2. The rapid fire round cannot be stopped once started under any circumstances.</li>
@@ -58,4 +64,11 @@ SignUp
   <a href="/question"><button class="register">Continue</button></a>
 </div>
 
+<footer>
+  <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
+    <h3 style="color: white; font-size: 30px">Our Sponsors</h3>
+    <img src="../static/image/sponsor1.jpeg">
+    <img src="../static/image/sponsor2.jpeg">
+  </div>
+</footer>
 {% endblock %}  

@@ -8,19 +8,17 @@ SignUp
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
 
+{% block intStyle %}
 <style type="text/css">
-  a.signup {
-    margin-top: 3%;
-    margin-right: 14%;
-    float: right;
-    color: white;
-  }
-  video {
-    position: fixed;
-    margin-top: -20px;
+  body {
+    background: {{bg|safe}};
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
+{% endblock %}
+
 
 {% block body %}
 <nav class="navbar navbar-inverse">
@@ -47,10 +45,6 @@ SignUp
   </div>
 </nav>
 
-<video autoplay loop id="video-background" muted plays-inline>
-  <source src="../static/video/login-signup.mp4" type="video/mp4">
-</video>
-
 <div class="content-w3ls instructions" style="position: relative;">
   <p>Time and Tide wait for none and neither does Arya Stark and she embarks on a dangerous journey to Braavos which is the next crucial step in Bran’s carefully laid out plan. </p>
   <p>The Iron Bank in Braavos consists of the strongest steel which is important for reinforcing the foundation brought forth by Jon but the only way Arya can get these reinforcements is if she can face her mentor and teacher and defeat him in combat to gain access to the vaults in the Iron Bank. No one knows the streets and the people of Braavos like Arya does and her determination and effectiveness makes her dangerous and perfect for this mission.</p>
@@ -58,5 +52,11 @@ SignUp
   <h3>“She navigates the maze by answering all the questions and gains access to the gold.”</h3>
   <a href="/question"><button class="register">Continue to Level 2</button></a>
 </div>
-
+<footer>
+  <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
+    <h3 style="color: white; font-size: 30px">Our Sponsors</h3>
+    <img src="../static/image/sponsor1.jpeg">
+    <img src="../static/image/sponsor2.jpeg">
+  </div>
+</footer>
 {% endblock %}  

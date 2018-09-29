@@ -11,6 +11,18 @@ Question
 {% block extJS %}
 
 {% endblock %}
+
+{% block intStyle %}
+<style type="text/css">
+  body {
+    background: {{bg|safe}};
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+</style>
+{% endblock %}
+
 {% block body %}
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -83,6 +95,13 @@ Question
 
 </div>
 
+<footer>
+  <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
+    <h3 style="color: white; font-size: 30px">Our Sponsors</h3>
+    <img src="../static/image/sponsor1.jpeg">
+    <img src="../static/image/sponsor2.jpeg">
+  </div>
+</footer>
 <script type="text/javascript">
 window.sel = '';
 function myFn(x) {

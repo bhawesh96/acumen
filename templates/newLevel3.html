@@ -8,19 +8,17 @@ SignUp
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
 
+{% block intStyle %}
 <style type="text/css">
-  a.signup {
-    margin-top: 3%;
-    margin-right: 14%;
-    float: right;
-    color: white;
-  }
-  video {
-    position: fixed;
-    margin-top: -20px;
+  body {
+    background: {{bg|safe}};
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
+{% endblock %}
+
 
 {% block body %}
 <nav class="navbar navbar-inverse">
@@ -47,10 +45,6 @@ SignUp
   </div>
 </nav>
 
-<video autoplay loop id="video-background" muted plays-inline>
-  <source src="../static/video/login-signup.mp4" type="video/mp4">
-</video>
-
 <div class="content-w3ls instructions" style="position: relative;">
   <p>Jon and Arya Stark happy with their success were back on their way to Winterfell but now our mighty heroes are faced with an even bigger problem, a lack of gold to buy the other materials and man power to finish the wall. As Bran and Daenerys weigh their options and discuss strategies out comes Tyrion with a plan to save the day by stealing what they require from Casterly Rock. Tyrion chooses Brienne of Tarth to accompany him on his journey and when he asks for volunteers, Tormund Giantsbane raises his hand. Tyrion asks him,” What use are you to me?” and Tormund says,” Plenty of little men have tried to put their swords through my heart. There are plenty of little skeletons buried in the woods.”</p>
   <p>As they approach Casterly Rock by sea, Brienne walks up to Tyrion and stands beside him. Tyrion with a drink in his hand sensing the danger they were walking into tells her,” Death is so final, whereas Life, ah, Life is full of possibilities.” They snuck into the sewage system where they were ambushed by a small army and they started fighting their way through to the heart of Casterly Rock.</p>
@@ -58,5 +52,11 @@ SignUp
   <p>After they come out of Casterly Rock and are on their way back to Winterfell, Tyrion says,“ The next time I have an idea like that, punch me in the face.”</p>
   <a href="/question"><button class="register">Continue to Level 3</button></a>
 </div>
-
+<footer>
+  <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
+    <h3 style="color: white; font-size: 30px">Our Sponsors</h3>
+    <img src="../static/image/sponsor1.jpeg">
+    <img src="../static/image/sponsor2.jpeg">
+  </div>
+</footer>
 {% endblock %}  
