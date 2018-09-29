@@ -1,0 +1,45 @@
+{% extends "theme.html" %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block extStyle %}
+<link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Welcome {{namex}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li class="active"><a href="/instructions">Instructions</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="content-w3ls instructions" style="position: relative;">
+  <div class="content-w3ls instructions" style="position: relative;">
+  <p>You have completed Level 2</p>
+  <p>Your score is {{score}}</p>
+  <a href="/question"><button class="register">Continue to Level 3</button></a>
+  <a href="/rapidfire"><button class="register">Play Rapid Fire of level 2</button></a>
+</div>
+</div>
+
+{% endblock %}  

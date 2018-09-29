@@ -1,0 +1,104 @@
+{% extends "theme.html" %}
+
+{% block title %}
+Question
+{% endblock %}
+
+{% block extStyle %}
+<link href="../static/css/question.css" rel='stylesheet' type='text/css' media="all" />
+{% endblock %}
+
+{% block extJS %}
+
+{% endblock %}
+{% block body %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">Welcome {{name}}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/rules">Rules</a></li>
+        <li><a href="/instructions">Instructions</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="formContainer">
+  <div class="myform">
+    <div style="display: inline-flex; width: 100%; justify-content: space-between; margin-top: -5px;">
+      <p id="story">Level {{params.level}} Que {{params.question_number}}</p>
+      {%if params.difficulty == 1%}
+        <p id="story">Easy</p>
+      {%endif%}
+      {%if params.difficulty == 2%}
+        <p id="story">Medium</p>
+      {%endif%}
+      {%if params.difficulty == 3%}
+        <p id="story">Difficult</p>
+      {%endif%}
+    </div>
+    <p id="question" style="letter-spacing: 2px;">{{params.ques}}</p>
+    {%if params.quesImage%}
+      <img id="quesImage" src="../static/image/{{params.quesImage}}" alt="{{params.quesImage}}" style="width: 30%;">
+    {%endif%}
+    <form action="/question" method="POST">
+    <div class="inputRadio" name="answer" value="1" id="1" onclick="myFn('1')">
+    	{{params.option1}}
+    </div>
+    <div class="inputRadio" name="answer" value="2" id="2" onclick="myFn('2')">
+    	{{params.option2}}
+    </div>
+    <div class="inputRadio" name="answer" value="3" id="3" onclick="myFn('3')">
+    	{{params.option3}}
+    </div>
+    <div class="inputRadio" name="answer" value="4" id="4" onclick="myFn('4')">
+    	{{params.option4}}
+	</div>
+	<div class="inputRadio inputSubmit" onclick="submitForm()">
+  	<form action="/question" method="POST">
+  		<input type="hidden" name="answer" id="answer">
+  		<input type="submit" value="Submit and Next">
+  	</form>
+  </div>
+
+    <!-- <div class="hint">
+      <div class="inputRadio hintButton">
+        <form action="/question" method="POST">
+          <input type="submit" id="hintSubmit" value="Pass">
+        </form>
+      </div>
+    </div> -->
+  </div>
+
+</div>
+
+<script type="text/javascript">
+window.sel = '';
+function myFn(x) {
+    lis = document.getElementsByClassName('inputRadio');
+    for (i=0;i<4;i=i+1)
+        {
+            lis[i].style.background = '#3970b0';
+        }
+    document.getElementById(x).style.background = '#0e3f77';
+    sel = x;
+    document.getElementById(x).checked = true;
+}
+
+function submitForm() {
+    console.log(sel);
+    document.getElementById('answer').value = sel;
+}
+</script>
+{% endblock %}

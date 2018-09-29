@@ -5,7 +5,7 @@ import requests
 
 # from mysql.connector import MySQLConnection, Error
 
-from flask import Flask, render_template, redirect, json, request, session, Markup
+from flask import Flask, render_template, redirect, json, request, session, Markup, flash
 from flaskext.mysql import MySQL
 
 mysql = MySQL()
@@ -165,6 +165,7 @@ def updateScore(isAnswerCorrect):
 
         for player in data:
             score = int(player[1]) + points_to_be_added
+            session['curr_score'] = score
         cursor.execute("UPDATE scores SET points = %s WHERE user_id = %s", (str(score), session['user_id']))
         conn.commit()
     except Exception as e:
@@ -173,14 +174,6 @@ def updateScore(isAnswerCorrect):
 
 def update():
     if(session.get('user_id')):
-        if(session['curr_ques'] == '1_20'):
-            session['curr_rapid'] == 1
-        elif(session['curr_ques'] == '2_20'):
-            session['curr_rapid'] == 2
-        elif(session['curr_ques'] == '3_20'):
-            session['curr_rapid'] == 3
-        elif(session['curr_ques'] == '4_20'):
-            session['curr_rapid'] == 4
         session['curr_ques'] = session['curr_ques'].split('_')[0]+ '_' + str(int(session['curr_ques'].split('_')[1]) + 1)
         conn = mysql.connect()
         try:
@@ -226,13 +219,24 @@ def newLevel():
             return render_template('newLevel3.html')
         elif(session['curr_ques'] == '4_1'):
             return render_template('newLevel4.html')
+        else:
+            return redirect('/question')
 
 @app.route('/question')
 def question():
     if(session.get('user_id')):
+        if(session['curr_ques'] == '1_21'):
+            return render_template('levelEnd1.html', score=session['curr_score'])
+        elif(session['curr_ques'] == '2_21'):
+            return render_template('levelEnd2.html', score=session['curr_score'])
+        elif(session['curr_ques'] == '3_21'):
+            return render_template('levelEnd3.html', score=session['curr_score'])
+        elif(session['curr_ques'] == '4_21'):
+            return render_template('levelEnd4.html', score=session['curr_score'])
         params = getQuestion()
         params['level'] = session['curr_ques'].split('_')[0]
         params['question_number'] = session['curr_ques'].split('_')[1]
+        flash('You were successfully logged in')
         return render_template('questionfib.html', params = params)    
     else:
         return redirect('/login')
@@ -251,5 +255,5 @@ def admin():
     return redirect('https://i0.kym-cdn.com/photos/images/original/000/232/114/e39.png', code=302)
 
 if __name__ == "__main__":
-    app.run(debug=True,port=8000,use_evalex=False)
+    app.run(debug=True,port=10002,use_evalex=False)
     # app.run(debug=True,host='192.168.43.53',port=5007,use_evalex=False)
