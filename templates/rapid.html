@@ -52,7 +52,7 @@ Question
     {%if params.quesImage%}
       <img id="quesImage" src="../static/image/{{params.quesImage}}" alt="{{params.quesImage}}" style="width: 30%;">
     {%endif%}
-    <form action="/question" method="POST">
+    <form action="/rapidfire" method="POST">
     <div class="inputRadio" name="answer" value="1" id="1" onclick="myFn('1')">
     	{{params.option1}}
     </div>
@@ -66,7 +66,7 @@ Question
     	{{params.option4}}
 	</div>
 	<div class="inputRadio inputSubmit" onclick="submitForm()">
-  	<form action="/question" method="POST">
+  	<form action="/rapidfire" method="POST">
   		<input type="hidden" name="answer" id="answer">
   		<input type="submit" value="Submit and Next">
   	</form>

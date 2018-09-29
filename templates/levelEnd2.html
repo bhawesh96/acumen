@@ -37,8 +37,8 @@ SignUp
   <div class="content-w3ls instructions" style="position: relative;">
   <p>You have completed Level 2</p>
   <p>Your score is {{score}}</p>
-  <a href="/question"><button class="register">Continue to Level 3</button></a>
-  <a href="/rapidfire"><button class="register">Play Rapid Fire of level 2</button></a>
+  <a href="/question?skipRapid=True"><button class="register">Continue to Level 3</button></a>
+  {%if showRapid!=0%}<a href="/rapidfire"><button class="register">Play Rapid Fire of level 2</button></a>{%endif%}
 </div>
 </div>
 

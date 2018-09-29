@@ -37,7 +37,7 @@ SignUp
   <p>You have completed Level 4</p>
   <p>Your score is {{score}}</p>
   <a href="/result"><button class="register">Result</button></a>
-  <a href="/rapidfire"><button class="register">Play Rapid Fire of level 4</button></a>
+  {%if showRapid!=0%}<a href="/rapidfire"><button class="register">Play Rapid Fire of level 4</button></a>{%endif%}
 </div>
 
 {% endblock %}  
