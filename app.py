@@ -205,23 +205,23 @@ def update():
             makeRapidZero()
             session['curr_rapid'] = 1
             session['correct_rapid'] = 0
-            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid_q'] = '1_1'
         elif(session['curr_ques'] == '2_20'):
             makeRapidZero()
-            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid'] = 2
             session['correct_rapid'] = 0
             session['curr_rapid_q'] = '2_1'
         elif(session['curr_ques'] == '3_20'):
             makeRapidZero()
-            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid'] = 3
             session['correct_rapid'] = 0
             session['curr_rapid_q'] = '3_1'
         elif(session['curr_ques'] == '4_20'):
             makeRapidZero()
-            session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
+            # session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_0'
             session['curr_rapid'] = 4
             session['correct_rapid'] = 0
             session['curr_rapid_q'] = '4_1'
@@ -320,19 +320,33 @@ def rapidLevel():
         print str(e)
         return 0
 
+def rapidFireEnd():
+    if(session['curr_ques'] == '21'):
+        session['curr_ques'] = str(int(session['curr_ques'].split('_')[0]) + 1) + '_1'
+    conn = mysql.connect()
+    try:
+        cursor = conn.cursor()
+        cursor.execute("UPDATE players SET curr_ques = %s, curr_rapid = %s WHERE user_id = %s", (session['curr_ques'], session['curr_rapid'], session['user_id']))
+        conn.commit()
+    except Exception as e:
+        print str(e)
+    return True
+
+
 @app.route('/rapidfire')
 def rapidfire():
     if(session.get('user_id')):
         makeRapidZero()
-        if(rapidLevel() != 0):
-            if('11' in session['curr_rapid_q']):
-                return redirect('/question')
-            params = getRapidQuestion()
-            params['level'] = session['curr_rapid_q'].split('_')[0]
-            params['question_number'] = session['curr_rapid_q'].split('_')[1]
-            return render_template('rapid.html', params = params)
-        else:
+        # if(rapidLevel() != 0):
+        if('11' in session['curr_rapid_q']):
+            # rapidFireEnd()
             return redirect('/question')
+        params = getRapidQuestion()
+        params['level'] = session['curr_rapid_q'].split('_')[0]
+        params['question_number'] = session['curr_rapid_q'].split('_')[1]
+        return render_template('rapid.html', params = params)
+        # else:
+            # return redirect('/question')
     else:
         return redirect('/login')
 
