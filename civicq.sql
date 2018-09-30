@@ -19,7 +19,8 @@ CREATE TABLE `kodamr13_inquizitive`.`scores` (
 CREATE TABLE `kodamr13_inquizitive`.`winner_rapid` (
   `user_id` BIGINT REFERENCES `players` (`user_id`),
   `rapid` INT,
-  PRIMARY KEY (`rapid`)
+  `time` VARCHAR(100),
+  PRIMARY KEY (`user_id`)
   );
 
 -- drop table if exists `kodamr13_inquizitive`.questions;

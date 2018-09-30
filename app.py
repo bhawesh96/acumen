@@ -2,7 +2,7 @@
 import traceback, warnings
 warnings.filterwarnings("ignore")
 import requests
-
+from datetime import datetime
 # from mysql.connector import MySQLConnection, Error
 
 from flask import Flask, render_template, redirect, json, request, session, Markup, flash
@@ -182,9 +182,10 @@ def updateScoreRapid(isAnswerCorrect):
 
         if(session['correct_rapid']==8):
             try:
-                ins = "INSERT INTO winner_rapid values ("+ session['user_id']+",'" + session['curr_rapid_q'].split('_')[0] + "'"
+                now = datetime.now()
+                ins = "INSERT INTO winner_rapid values ("+ session['user_id']+",'" + session['curr_rapid_q'].split('_')[0] +"','" + str(now) +"')"
                 print(ins)
-                cursor.execute("INSERT INTO winner_rapid values ("+ session['user_id']+",'" + session['curr_rapid_q'].split('_')[0] + "'")
+                cursor.execute("INSERT INTO winner_rapid values ("+ session['user_id']+",'" + session['curr_rapid_q'].split('_')[0] +"','" + str(now) +"')")
             except Exception as e:
                 print str(e)   ## to be commented in the end
                 pass
