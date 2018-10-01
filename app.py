@@ -286,17 +286,22 @@ def newLevel():
     if(session.get('user_id')):
         if(session['curr_ques'] == '1_1'):
             bg = "url('../static/image/level_1_storyline.jpg')"
+            session['curr_rapid_q'] = '1_1'
             return render_template('newLevel1.html', bg=bg)
         elif(session['curr_ques'] == '2_1'):
             bg = "url('../static/image/level_2_storyline.jpg')"
+            session['curr_rapid_q'] = '1_2'
             return render_template('newLevel2.html', bg=bg)
         elif(session['curr_ques'] == '3_1'):
             bg = "url('../static/image/level_3_storyline.jpg')"
+            session['curr_rapid_q'] = '1_3'
             return render_template('newLevel3.html', bg=bg)
         elif(session['curr_ques'] == '4_1'):
             bg = "url('../static/image/level_4_storyline.jpg')"
+            session['curr_rapid_q'] = '1_4'
             return render_template('newLevel4.html', bg=bg)
         else:
+            session['curr_rapid_q'] = str(int(rapidLevel())) + '_1'
             return redirect('/question')
 
 def makeRapidZero():

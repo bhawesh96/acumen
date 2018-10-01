@@ -2,6 +2,10 @@
 	width: 40%;
 }
 
+.rules-page {
+	width: 81%;
+}
+
 #position {
 	color: white;
 	width: 10%;
@@ -19,10 +23,14 @@
 }
 
 .instructions {
-	width: 80%;
+	width: 90%;
 	color: white;
 	padding: 20px;
 	line-height: 25px;
+}
+
+.instructions-page {
+	width: 91%;
 }
 
 #rulesOL {
