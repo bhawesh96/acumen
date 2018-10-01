@@ -175,17 +175,15 @@ def updateScoreRapid(isAnswerCorrect):
     conn = mysql.connect()
     cursor = conn.cursor()
     try:
-        
         if(isAnswerCorrect):
             session['correct_rapid'] +=1
-
         try:
             columnName = 'rapid' + str(session['curr_rapid_q'].split('_')[0]) + 'score'
             cursor.execute("UPDATE scores SET " + columnName + " = %s WHERE user_id = %s", (session['correct_rapid'], session['user_id']))
+            conn.commit()
         except Exception as e:
             print str(e)   ## to be commented in the end
             pass
-
     except Exception as e:
         print str(e)
     return updateRapid()
@@ -283,18 +281,22 @@ def newLevel():
         if(session['curr_ques'] == '1_1'):
             bg = "url('../static/image/level_1_storyline.jpg')"
             session['curr_rapid_q'] = '1_1'
+            session['correct_rapid'] = 0
             return render_template('newLevel1.html', bg=bg)
         elif(session['curr_ques'] == '2_1'):
             bg = "url('../static/image/level_2_storyline.jpg')"
             session['curr_rapid_q'] = '1_2'
+            session['correct_rapid'] = 0
             return render_template('newLevel2.html', bg=bg)
         elif(session['curr_ques'] == '3_1'):
             bg = "url('../static/image/level_3_storyline.jpg')"
             session['curr_rapid_q'] = '1_3'
+            session['correct_rapid'] = 0
             return render_template('newLevel3.html', bg=bg)
         elif(session['curr_ques'] == '4_1'):
             bg = "url('../static/image/level_4_storyline.jpg')"
             session['curr_rapid_q'] = '1_4'
+            session['correct_rapid'] = 0
             return render_template('newLevel4.html', bg=bg)
         else:
             session['curr_rapid_q'] = str(int(rapidLevel())) + '_1'
@@ -350,7 +352,7 @@ def rapidfire():
         params = getRapidQuestion()
         params['level'] = session['curr_rapid_q'].split('_')[0]
         params['question_number'] = session['curr_rapid_q'].split('_')[1]
-        params['timeElapsed'] = (int(datetime.datetime.now().strftime("%s")) * 1000) - session['rapid_start_time']
+        params['timeElapsed'] = 2000 + (int(datetime.datetime.now().strftime("%s")) * 1000) - session['rapid_start_time']
         return render_template('rapid.html', params = params)
         # else:
             # return redirect('/question')
@@ -391,15 +393,19 @@ def question():
             return redirect('/newLevel')
         if(session['curr_ques'] == '1_21'):
             fetchCurrentScore()
+            session['correct_rapid'] = 0
             return render_template('levelEnd1.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid1score'])
         elif(session['curr_ques'] == '2_21'):
             fetchCurrentScore()
+            session['correct_rapid'] = 0
             return render_template('levelEnd2.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid2score'])
         elif(session['curr_ques'] == '3_21'):
             fetchCurrentScore()
+            session['correct_rapid'] = 0
             return render_template('levelEnd3.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid3score'])
         elif(session['curr_ques'] == '4_21'):
             fetchCurrentScore()
+            session['correct_rapid'] = 0
             return render_template('levelEnd4.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid4score'])
         params = getQuestion()
         params['level'] = session['curr_ques'].split('_')[0]
