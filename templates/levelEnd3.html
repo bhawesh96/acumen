@@ -53,8 +53,11 @@ SignUp
   <p>After they come out of Casterly Rock and are on their way back to Winterfell, Tyrion says,“ The next time I have an idea like that, punch me in the face.”</p>
   <p>You have completed Level 3</p>
   <p>Your score is {{score}}</p>
+  {%if numberOfRapidPlayedCorrectly %}
+    <p>Number of rapid fire questions correctly answered : {{numberOfRapidPlayedCorrectly}}</p>
+  {%endif%}
   <a href="/question?skipRapid=True"><button class="register">Continue to Level 4</button></a>
-  {%if showRapid!=0%}<a href="/rapidfire"><button class="register">Play Rapid Fire of level 3</button></a>{%endif%}
+  {%if showRapid!=0%}<a href="/rapidfire?startRapid=True"><button class="register">Play Rapid Fire of level 3</button></a>{%endif%}
 </div>
 <footer>
   <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">

@@ -27,7 +27,7 @@ Question
         <li><a href="/home">Home</a></li>
         <li><a href="/rules">Rules</a></li>
         <li><a href="/instructions">Instructions</a></li>
-<li><a href="#">Other Events</a></li>
+        <li><a href="#">Other Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -35,10 +35,11 @@ Question
     </div>
   </div>
 </nav>
-<div class="formContainer">
+<div class="formContainer" style="margin-bottom: 20%;">
   <div class="myform">
     <div style="display: inline-flex; width: 100%; justify-content: space-between; margin-top: -5px;">
       <p id="story">Rapid Fire Level {{params.level}} Que {{params.question_number}}</p>
+      <p id="story">Time left : <span id="remainingTime"></span></p>
       {%if params.difficulty == 1%}
         <p id="story">Easy</p>
       {%endif%}
@@ -101,6 +102,22 @@ function myFn(x) {
     document.getElementById(x).style.background = '#0e3f77';
     sel = x;
     document.getElementById(x).checked = true;
+}
+
+var count = 240000 - {{params.timeElapsed}};
+var counter=setInterval(timer, 1000);
+function timer()
+{
+  count = count - 1000;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     alert('You have played {{params.question_number}} rapid-fire questions')
+     window.location = 'http://localhost:10002/rapidfire?endRapid=True'
+     return;
+  }
+
+ document.getElementById("remainingTime").innerHTML=count/1000 + " secs";
 }
 
 function submitForm() {

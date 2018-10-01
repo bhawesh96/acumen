@@ -85,9 +85,12 @@ delimiter ;
 
 -- call validate_login_inquizitive('abc@gmail.com','rahul123');
 
+drop trigger if exists `init_score_inquizitive`;
 delimiter $$
 create trigger init_score_inquizitive after insert on players
 for each row
-insert into scores values (New.user_id,'0');
+insert into scores values (New.user_id,'0', 0, 0, 0, 0);
 $$
 delimiter ;
+
+-- update players set curr_ques='1_20', curr_rapid=1 where name='Bhawesh';

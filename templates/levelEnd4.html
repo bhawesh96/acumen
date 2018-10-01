@@ -52,8 +52,11 @@ SignUp
   <h3>“The Queen answers all the questions and acquires Dragon Glass.”</h3>
   <p>You have completed Level 4</p>
   <p>Your score is {{score}}</p>
+  {%if numberOfRapidPlayedCorrectly %}
+    <p>Number of rapid fire questions correctly answered : {{numberOfRapidPlayedCorrectly}}</p>
+  {%endif%}
   <a href="/result"><button class="register">Result</button></a>
-  {%if showRapid!=0%}<a href="/rapidfire"><button class="register">Play Rapid Fire of level 4</button></a>{%endif%}
+  {%if showRapid!=0%}<a href="/rapidfire?startRapid=True"><button class="register">Play Rapid Fire of level 4</button></a>{%endif%}
 </div>
 <footer>
   <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">

@@ -54,8 +54,11 @@ SignUp
   <h4>Jon Snow answers all the questions correctly and with the help of his raiding party he gathers what they require and returns to Winterfell.</h4>
   <p>You have completed Level 1</p>
   <p>Your score is {{score}}</p>
+  {%if numberOfRapidPlayedCorrectly %}
+    <p>Number of rapid fire questions correctly answered : {{numberOfRapidPlayedCorrectly}}</p>
+  {%endif%}
   <a href="/question?skipRapid=True"><button class="register">Continue to Level 2</button></a>
-  {%if showRapid!=0 %}<a href="/rapidfire"><button class="register">Play Rapid Fire of level</button></a>{%endif%}
+  {%if showRapid!=0 %}<a href="/rapidfire?startRapid=True"><button class="register">Play Rapid Fire of level</button></a>{%endif%}
 </div>
 
 {% endblock %}  

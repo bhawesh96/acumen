@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import traceback, warnings
 warnings.filterwarnings("ignore")
-import requests
-from datetime import datetime
+import requests, datetime
 # from mysql.connector import MySQLConnection, Error
 
 from flask import Flask, render_template, redirect, json, request, session, Markup, flash
@@ -180,15 +179,12 @@ def updateScoreRapid(isAnswerCorrect):
         if(isAnswerCorrect):
             session['correct_rapid'] +=1
 
-        if(session['correct_rapid']==8):
-            try:
-                now = datetime.now()
-                ins = "INSERT INTO winner_rapid values ("+ session['user_id']+",'" + session['curr_rapid_q'].split('_')[0] +"','" + str(now) +"')"
-                print(ins)
-                cursor.execute("INSERT INTO winner_rapid values ("+ session['user_id']+",'" + session['curr_rapid_q'].split('_')[0] +"','" + str(now) +"')")
-            except Exception as e:
-                print str(e)   ## to be commented in the end
-                pass
+        try:
+            columnName = 'rapid' + str(session['curr_rapid_q'].split('_')[0]) + 'score'
+            cursor.execute("UPDATE scores SET " + columnName + " = %s WHERE user_id = %s", (session['correct_rapid'], session['user_id']))
+        except Exception as e:
+            print str(e)   ## to be commented in the end
+            pass
 
     except Exception as e:
         print str(e)
@@ -343,6 +339,10 @@ def rapidFireEnd():
 def rapidfire():
     if(session.get('user_id')):
         makeRapidZero()
+        if(request.args.get('startRapid') == 'True'):
+            session['rapid_start_time'] = int(datetime.datetime.now().strftime("%s")) * 1000
+        if(request.args.get('endRapid') == 'True'):
+            return redirect('/question')
         # if(rapidLevel() != 0):
         if('11' in session['curr_rapid_q']):
             # rapidFireEnd()
@@ -350,6 +350,7 @@ def rapidfire():
         params = getRapidQuestion()
         params['level'] = session['curr_rapid_q'].split('_')[0]
         params['question_number'] = session['curr_rapid_q'].split('_')[1]
+        params['timeElapsed'] = (int(datetime.datetime.now().strftime("%s")) * 1000) - session['rapid_start_time']
         return render_template('rapid.html', params = params)
         # else:
             # return redirect('/question')
@@ -374,6 +375,10 @@ def fetchCurrentScore():
         for player in data:
             score = int(player[1])
             session['curr_score'] = score
+            session['rapid1score'] = int(player[2])
+            session['rapid2score'] = int(player[3])
+            session['rapid3score'] = int(player[4])
+            session['rapid4score'] = int(player[5])
     except Exception as e:
         print str(e)
 
@@ -386,23 +391,16 @@ def question():
             return redirect('/newLevel')
         if(session['curr_ques'] == '1_21'):
             fetchCurrentScore()
-            return render_template('levelEnd1.html', score=session['curr_score'], showRapid=rapidLevel())
+            return render_template('levelEnd1.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid1score'])
         elif(session['curr_ques'] == '2_21'):
             fetchCurrentScore()
-            return render_template('levelEnd2.html', score=session['curr_score'], showRapid=rapidLevel())
+            return render_template('levelEnd2.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid2score'])
         elif(session['curr_ques'] == '3_21'):
             fetchCurrentScore()
-            return render_template('levelEnd3.html', score=session['curr_score'], showRapid=rapidLevel())
+            return render_template('levelEnd3.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid3score'])
         elif(session['curr_ques'] == '4_21'):
             fetchCurrentScore()
-            return render_template('levelEnd4.html', score=session['curr_score'], showRapid=rapidLevel())
-        ## after 1_20 curr_ques is updated to 1_21 and curr_rapid (boolean to 1)##
-        ## you have to redirct to /rapidfire and update the curr_rapid to zero!!!
-
-        ## rapid fire round will be done (hopefully without errors) using all different and new variables
-        ## so all other session variable values are the same 1_21(example)
-        ## control will be redirected to /question once the rapidfire round completes properly!
-        ## rest you have to do.
+            return render_template('levelEnd4.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid4score'])
         params = getQuestion()
         params['level'] = session['curr_ques'].split('_')[0]
         if(params['level'] == '1'):
