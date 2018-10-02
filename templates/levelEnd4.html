@@ -51,12 +51,13 @@ SignUp
 <div class="content-w3ls instructions" style="position: relative;">
   <h3>“The Queen answers all the questions and acquires Dragon Glass.”</h3>
   <p>You have completed Level 4</p>
-  <p>Your score is {{score}}</p>
+  <p style="font-weight: 700;">Your score is {{score}}</p>
+  <br />
   {%if numberOfRapidPlayedCorrectly %}
     <p>Number of rapid fire questions correctly answered : {{numberOfRapidPlayedCorrectly}}</p>
   {%endif%}
   <a href="/result"><button class="register">Result</button></a>
-  {%if showRapid!=0%}<a href="/rapidfire?startRapid=True"><button class="register">Play Rapid Fire of level 4</button></a>{%endif%}
+  {%if showRapid!=0%}<a href="/rapidfire?startRapid=True"><button class="register" onclick="showRapidRules()">Play Rapid Fire of level 4</button></a>{%endif%}
 </div>
 <footer>
   <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
@@ -65,5 +66,10 @@ SignUp
     <img src="../static/image/sponsor2.jpeg">
   </div>
 </footer>
+<script type="text/javascript">
+  function showRapidRules() {
+    alert("This level consists of 10 questions out of which atleast 8 must be answered correctly so as to win food coupons. \n\n There is a timer of 5 minutes which will start counting down when you start the Rapid Fire round. \n\n You can choose to skip the Rapid Fire round but you cannot go back to it once skipped. \n\n Once you start the Rapid Fire round you cannot exit the Rapid Fire Round.\n\n THERE IS A MAXIMUM OF ONE FOOD COUPON TO BE WON IN EVERY RAPID FIRE ROUND.")
+  }
+</script>
 
 {% endblock %}  

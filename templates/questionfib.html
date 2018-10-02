@@ -39,7 +39,7 @@ Question
         <li><a href="/home">Home</a></li>
         <li><a href="/rules">Rules</a></li>
         <li><a href="/instructions">Instructions</a></li>
-<li><a href="#">Other Events</a></li>
+        <li><a href="#">Other Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -66,22 +66,22 @@ Question
       <img id="quesImage" src="../static/image/{{params.quesImage}}" alt="{{params.quesImage}}" style="width: 30%;">
     {%endif%}
     <form action="/question" method="POST">
-    <div class="inputRadio" name="answer" value="1" id="1" onclick="myFn('1')">
+    <div class="inputRadio" name="answer" value="1" id="1" onclick="myFn('1')" required>
     	{{params.option1}}
     </div>
-    <div class="inputRadio" name="answer" value="2" id="2" onclick="myFn('2')">
+    <div class="inputRadio" name="answer" value="2" id="2" onclick="myFn('2')" required>
     	{{params.option2}}
     </div>
-    <div class="inputRadio" name="answer" value="3" id="3" onclick="myFn('3')">
+    <div class="inputRadio" name="answer" value="3" id="3" onclick="myFn('3')" required>
     	{{params.option3}}
     </div>
-    <div class="inputRadio" name="answer" value="4" id="4" onclick="myFn('4')">
+    <div class="inputRadio" name="answer" value="4" id="4" onclick="myFn('4')" required>
     	{{params.option4}}
 	</div>
 	<div class="inputRadio inputSubmit" onclick="submitForm()">
-  	<form action="/question" method="POST">
+  	<form action="/question" method="POST" onsubmit="return isValidForm()">
   		<input type="hidden" name="answer" id="answer">
-  		<input type="submit" value="Submit and Next">
+  		<input type="submit" value="Submit and Next" onclick="return isValidForm()">
   	</form>
   </div>
 
@@ -119,6 +119,14 @@ function myFn(x) {
 function submitForm() {
     console.log(sel);
     document.getElementById('answer').value = sel;
+}
+
+function isValidForm() {
+  if(sel == '') {
+      alert('Please select an option');
+      return false;
+    }
+  return true;
 }
 </script>
 {% endblock %}

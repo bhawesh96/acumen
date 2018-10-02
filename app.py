@@ -435,6 +435,10 @@ def validateAns():
 def admin():
     return redirect('https://i0.kym-cdn.com/photos/images/original/000/232/114/e39.png', code=302)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', error="The page you requested was not found!")
+
 if __name__ == "__main__":
     app.run(debug=True,port=10002,use_evalex=False)
     # app.run(debug=True,host='192.168.43.53',port=5007,use_evalex=False)
