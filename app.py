@@ -385,8 +385,23 @@ def fetchCurrentScore():
             session['rapid2score'] = int(player[3])
             session['rapid3score'] = int(player[4])
             session['rapid4score'] = int(player[5])
+            session['pointsinlevel1'] = int(player[6])
+            session['pointsinlevel2'] = int(player[7]) - int(player[6]);
+            session['pointsinlevel3'] = int(player[8]) - int(player[7]);
+            session['pointsinlevel4'] = int(player[9]) - int(player[8]);
     except Exception as e:
         print str(e)
+
+def updateLevelWiseScore():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    try:
+        columnName = 'pointsafterlevel' + str(session['curr_ques'].split('_')[0])
+        cursor.execute("UPDATE scores SET " + columnName + " = %s WHERE user_id = %s", (session['curr_score'], session['user_id']))
+        conn.commit()
+    except Exception as e:
+        print str(e)   ## to be commented in the end
+        pass
 
 @app.route('/question')
 def question():
@@ -397,18 +412,22 @@ def question():
             return redirect('/newLevel')
         if(session['curr_ques'] == '1_21'):
             fetchCurrentScore()
+            updateLevelWiseScore()
             session['correct_rapid'] = 0
             return render_template('levelEnd1.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid1score'])
         elif(session['curr_ques'] == '2_21'):
             fetchCurrentScore()
+            updateLevelWiseScore()
             session['correct_rapid'] = 0
             return render_template('levelEnd2.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid2score'])
         elif(session['curr_ques'] == '3_21'):
             fetchCurrentScore()
+            updateLevelWiseScore()
             session['correct_rapid'] = 0
             return render_template('levelEnd3.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid3score'])
         elif(session['curr_ques'] == '4_21'):
             fetchCurrentScore()
+            updateLevelWiseScore()
             session['correct_rapid'] = 0
             return render_template('levelEnd4.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid4score'])
         params = getQuestion()
@@ -447,11 +466,44 @@ def otherevents():
 def trans():
     return render_template('transition.html', transVideo = session['transition_video'])    
 
+def calcEfficiency(level, score):
+    if(level == 1):
+        if(0 <= score <= 200):
+            eff = 33
+        elif(201 <= score <= 400):
+            eff = 66
+        else:
+            eff = 100
+    elif(level == 2):
+        if(0 <= score <= 220):
+            eff = 33
+        elif(221 <= score <= 450):
+            eff = 66
+        else:
+            eff = 100
+    elif(level == 3):
+        if(0 <= score <= 250):
+            eff = 33
+        elif(251 <= score <= 500):
+            eff = 66
+        else:
+            eff = 100
+    elif(level == 4):
+        if(0 <= score <= 300):
+            eff = 33
+        elif(301 <= score <= 600):
+            eff = 66
+        else:
+            eff = 100
+    else:
+        eff = 0
+    return eff
+
 @app.route('/result')
 def result():
     fetchCurrentScore()
-    efficiency = session['curr_score'] / 4
-    return render_template('result.html', efficiency = efficiency, score = session['curr_score'])
+    finalEff = (calcEfficiency(1, session['pointsinlevel1']) + calcEfficiency(2, session['pointsinlevel2']) + calcEfficiency(3, session['pointsinlevel3']) + calcEfficiency(4, session['pointsinlevel4'])) / 4
+    return render_template('result.html', efficiency = finalEff, score = session['curr_score'])
 
 @app.errorhandler(404)
 def page_not_found(e):
