@@ -7,6 +7,7 @@ SignUp
 {% block extStyle %}
 <link rel="stylesheet" type="text/css" href="./static/css/leaderboard.css">
 {% endblock %}
+
 {% block intStyle %}
 <style type="text/css">
   a.signup {
@@ -16,13 +17,14 @@ SignUp
     color: white;
   }
   body {
-    background-image: url('../static/image/each_level_result.jpg');
+    background-image: url('../static/image/final_result_page.jpg');
     background-repeat: no-repeat;
     background-size: cover;
   }
 }
 </style>
 {% endblock %}
+
 {% block body %}
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -38,7 +40,7 @@ SignUp
       <ul class="nav navbar-nav">
         <li><a href="/home">Home</a></li>
         <li><a href="/rules">Rules</a></li>
-        <li class="active"><a href="/instructions">Instructions</a></li>
+        <li><a href="/instructions">Instructions</a></li>
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -48,18 +50,7 @@ SignUp
   </div>
 </nav>
 
-<div class="content-w3ls instructions" style="position: relative;">
-  <div class="content-w3ls instructions" style="position: relative;">
-  <h3 style="font-weight: 700;">She navigates the maze and depending on the number of questions she answers she gains the equivalent amount of gold so she can buy good quality steel to construct the wall.</h3>
-  <p>You have completed Level 2</p>
-  <p style="font-weight: 700;">You have won {{score}} Gold Coins</p>
-  <br />
-  {%if numberOfRapidPlayedCorrectly %}
-    <p>Number of rapid fire questions correctly answered : {{numberOfRapidPlayedCorrectly}}</p>
-  {%endif%}
-  <a href="/question?skipRapid=True"><button class="register">Continue to Level 3</button></a>
-  {%if showRapid!=0%}<a href="/rapidfire?startRapid=True"><button class="register" onclick="showRapidRules()">Play Rapid Fire of level 2</button></a>{%endif%}
-</div>
+<div class="content-w3ls instructions instructions-page" style="position: relative;">
 </div>
 <footer>
   <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
@@ -69,9 +60,4 @@ SignUp
     <p style="color: white;">Contact - Vaibhav : 8290070537 &nbsp;&nbsp;&nbsp; Aenab : 9901803630</p>
   </div>
 </footer>
-<script type="text/javascript">
-  function showRapidRules() {
-    alert("This level consists of 10 questions out of which atleast 8 must be answered correctly so as to win food coupons. \n\n There is a timer of 2 minutes which will start counting down when you start the Rapid Fire round. \n\n You can choose to skip the Rapid Fire round but you cannot go back to it once skipped. \n\n Once you start the Rapid Fire round you cannot exit the Rapid Fire Round.\n\n THERE IS A MAXIMUM OF ONE FOOD COUPON TO BE WON IN EVERY RAPID FIRE ROUND.");
-  }
-</script>
 {% endblock %}  

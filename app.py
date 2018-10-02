@@ -435,6 +435,16 @@ def validateAns():
 def admin():
     return redirect('https://i0.kym-cdn.com/photos/images/original/000/232/114/e39.png', code=302)
 
+@app.route('/otherevents')
+def otherevents():
+    return render_template('otherEvents.html')
+
+@app.route('/result')
+def result():
+    fetchCurrentScore()
+    efficiency = session['curr_score'] / 4
+    return render_template('result.html', efficiency = efficiency, score = session['curr_score'])
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html', error="The page you requested was not found!")
