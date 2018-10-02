@@ -7,10 +7,26 @@ Question
 {% block extStyle %}
 <link href="../static/css/question.css" rel='stylesheet' type='text/css' media="all" />
 {% endblock %}
-
 {% block extJS %}
 
 {% endblock %}
+
+{% block intStyle %}
+<style type="text/css">
+  a.signup {
+    margin-top: 3%;
+    margin-right: 14%;
+    float: right;
+    color: white;
+  }
+  video {
+    position: fixed;
+    margin-top: -40px;
+  }
+}
+</style>
+{% endblock %}
+
 {% block body %}
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -35,7 +51,12 @@ Question
     </div>
   </div>
 </nav>
-<div class="formContainer" style="margin-bottom: 20%;">
+
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="../static/video/rapid-fire.mp4" type="video/mp4">
+</video>
+
+<div class="formContainer" style="margin-bottom: 20%; position: relative;">
   <div class="myform">
     <div style="display: inline-flex; width: 100%; justify-content: space-between; margin-top: -5px;">
       <p id="story">Rapid Fire Level {{params.level}} Que {{params.question_number}}</p>
@@ -84,6 +105,7 @@ Question
   </div>
 
 </div>
+
 <footer>
   <div style="min-height: 100px; background: #202123; position: relative; padding-bottom: 20px; text-align: center;">
     <h3 style="color: white; font-size: 30px">Our Sponsors</h3>

@@ -94,3 +94,12 @@ $$
 delimiter ;
 
 -- update players set curr_ques='1_20', curr_rapid=1 where name='Bhawesh';
+
+
+
+update questions set question="Compared to mild steel, cast iron has: 1.High compressive strength 2.high tensile strength 3.low compressive strength 4.low tensile strength" where question_id="4_11";
+
+update questions set option2="surface tension is expressed in N/m" where question_id="3_16";
+
+update rapid set option2="Intranet" where question_id="3_6";
+
