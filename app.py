@@ -294,7 +294,7 @@ def newLevel():
             session['correct_rapid'] = 0
             return render_template('newLevel3.html', bg=bg)
         elif(session['curr_ques'] == '4_1'):
-            bg = "url('../static/image/level_4_storyline.jpg')"
+            bg = "url('../static/image/level_4_storyline.jpeg')"
             session['curr_rapid_q'] = '1_4'
             session['correct_rapid'] = 0
             return render_template('newLevel4.html', bg=bg)
@@ -420,7 +420,7 @@ def question():
         elif(params['level'] == '3'):
             bg = "url('../static/image/level_3_questions.jpg')"
         elif(params['level'] == '4'):
-            bg = "url('../static/image/level_4_questions.jpg')"
+            bg = "url('../static/image/level_4_questions.jpeg')"
         params['question_number'] = session['curr_ques'].split('_')[1]
         return render_template('questionfib.html', params = params, bg=bg)
     else:
