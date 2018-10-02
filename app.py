@@ -393,18 +393,22 @@ def question():
             return redirect('/newLevel')
         if(session['curr_ques'] == '1_21'):
             fetchCurrentScore()
+            session['transition_video'] = "../static/video/welcome-level1.mp4"
             session['correct_rapid'] = 0
             return render_template('levelEnd1.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid1score'])
         elif(session['curr_ques'] == '2_21'):
             fetchCurrentScore()
+            session['transition_video'] = "../static/video/welcome-level2.mp4"
             session['correct_rapid'] = 0
             return render_template('levelEnd2.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid2score'])
         elif(session['curr_ques'] == '3_21'):
             fetchCurrentScore()
+            session['transition_video'] = "../static/video/welcome-level3.mp4"
             session['correct_rapid'] = 0
             return render_template('levelEnd3.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid3score'])
         elif(session['curr_ques'] == '4_21'):
             fetchCurrentScore()
+            session['transition_video'] = "../static/video/welcome-level4.mp4"
             session['correct_rapid'] = 0
             return render_template('levelEnd4.html', score=session['curr_score'], showRapid=rapidLevel(), numberOfRapidPlayedCorrectly = session['rapid4score'])
         params = getQuestion()
@@ -438,6 +442,10 @@ def admin():
 @app.route('/otherevents')
 def otherevents():
     return render_template('otherEvents.html')
+
+@app.route('/transition')
+def trans():
+    return render_template('transition.html', transVideo = session['transition_video'])    
 
 @app.route('/result')
 def result():

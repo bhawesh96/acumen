@@ -58,7 +58,7 @@ SignUp
   {%if numberOfRapidPlayedCorrectly %}
     <p>Number of rapid fire questions correctly answered : {{numberOfRapidPlayedCorrectly}}</p>
   {%endif%}
-  <a href="/question?skipRapid=True"><button class="register">Continue to Level 2</button></a>
+  <a href="/transition"><button class="register">Continue to Level 2</button></a>
   {%if showRapid!=0 %}<a href="/rapidfire?startRapid=True"><button class="register" onclick="showRapidRules()">Play Rapid Fire of level</button></a>{%endif%}
 </div>
 <footer>
