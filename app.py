@@ -23,6 +23,7 @@ app.secret_key = '8bf9547569cd5a638931a8639cf9f86237931e92'
 @app.route('/')
 @app.route('/home')
 def main():
+    return redirect("https://zenandraine.files.wordpress.com/2015/12/game-over-thank-you-for-playing-saying-quotes-pictures.jpg")
     if(session.get('user_id')):
         return render_template('home.html')
     else:
