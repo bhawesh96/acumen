@@ -1,5 +1,5 @@
 # Acumen
-Online event of IE-CIVIL
+Online event of ISTE
 
 ## Folder structure
 
