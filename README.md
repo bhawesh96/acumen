@@ -16,4 +16,4 @@ Online event of ISTE called HocusPocus
 		- `file_images`
 	
 - `app.py`
--  `requirements.txt`
+- `requirements.txt`
