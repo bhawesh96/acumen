@@ -1,4 +1,4 @@
-# Constructure
+# Acumen
 Online event of IE-CIVIL
 
 ## Folder structure
