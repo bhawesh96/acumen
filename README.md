@@ -1,5 +1,5 @@
 # Acumen
-Online event of ISTE
+Online event of ISTE called HocusPocus
 
 ## Folder structure
 
